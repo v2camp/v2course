@@ -21,7 +21,7 @@
 
 ## 审查报告格式
 
-产出文件写入 `_process/phase-5/tech-review-report.md`，格式如下：
+产出文件写入 `.course/{task_name}/phase-5/tech-review-report.md`，格式如下：
 
 ```markdown
 ## 技术布道师审查报告

@@ -37,7 +37,7 @@
 
 ### Step 1：主 Agent 专项质量自评
 - 结合 `references/quality-guide.md`，对核心文稿进行逐段扫描。
-- 产出 `.course-prod/{task_name}/phase-5/evaluation-summary.md`，重点审计：
+- 产出 `.course/{task_name}/phase-5/evaluation-summary.md`，重点审计：
   - 是否存在禁用词（首先/其次/综上所述等）？
   - **情绪张力是否绝对基于真实案例？（严禁凭空捏造）**
   - **是否彻底清除了三大卡片组件（讲师/学员/面试卡）与浮夸词汇？**
@@ -46,8 +46,8 @@
 
 ### Step 2：并行启动专家审查
 启动表达教练与技术布道师 subagents，分析产出：
-- `.course-prod/{task_name}/phase-5/expression-review-report.md`
-- `.course-prod/{task_name}/phase-5/tech-review-report.md`
+- `.course/{task_name}/phase-5/expression-review-report.md`
+- `.course/{task_name}/phase-5/tech-review-report.md`
 
 ### Step 3：汇总与改进
 - 如果自评或任何专家报告显示“不合格”或存在 🔴 项，必须返回对应 Phase 进行改进。
@@ -56,7 +56,7 @@
 
 ## 本阶段产出
 
-- `.course-prod/{task_name}/phase-5/evaluation-summary.md`（含专项干货质量评估）
+- `.course/{task_name}/phase-5/evaluation-summary.md`（含专项干货质量评估）
 - 表达教练审查报告
 - 技术布道师审查报告
 - 定稿后的核心产物（确保无 AI 腔、高美感 SVG 图、极致且扁平的干货排版）

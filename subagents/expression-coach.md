@@ -36,11 +36,11 @@
 
 请根据内容类型读取相应核心产出文件：
 - `{大纲.md / 讲义.md / 晋升汇报.md / 面试脚本.md 的绝对路径}`
-- 参考指南：`.agents/skills/course-production/references/quality-guide.md`
+- 参考指南：`.agents/skills/course-skill/references/quality-guide.md`
 
 ## 审查报告格式
 
-产出文件写入 `.course-prod/{task_name}/phase-5/expression-review-report.md`，格式如下：
+产出文件写入 `.course/{task_name}/phase-5/expression-review-report.md`，格式如下：
 
 ```markdown
 ## 表达教练审查报告
