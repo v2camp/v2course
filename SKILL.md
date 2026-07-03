@@ -1,5 +1,5 @@
 ---
-name: course-production
+name: course-skill
 description: 指导用户从 0 到 1 策划并制作高品质的各类课程与辅导材料（公开课、实战课、迷你课、晋升/面试辅导等），支持多版本管理与双视角评估。
 triggers:
 - 公开课
@@ -9,8 +9,8 @@ triggers:
 - 面试辅导
 - 课程大纲
 - 课程制作
-- course production
-- cpd
+- course
+- cs
 - 做课
 - 开发课程
 - 讲义
