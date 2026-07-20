@@ -1,0 +1,100 @@
+# 领域适配指南（Domain Adaptation Guide）
+
+本指南说明如何将 course-skill 应用于 AI Agent 以外的技术领域。
+课程制作工艺（6 阶段流程、去 AI 腔、SVG 规范、三视角评估、L1-L4 分层同步）是领域无关的，
+但以下内容需在 Phase 0 声明后使用。
+
+---
+
+## 1. Phase 0 必须声明的领域信息
+
+开启新课程制作时，在 Phase 0 必须向用户确认以下信息：
+
+| 声明项 | 说明 | 示例（AI Agent 领域） | 示例（数据工程领域） |
+|:---|:---|:---|:---|
+| **领域名称** | 课程所属技术领域 | AI Agent 应用开发 | 实时数据处理 |
+| **技术栈** | 语言 + 核心框架 | Java/Spring AI Alibaba、TS/LangChain.js | Python/Flink、Scala/Spark Structured Streaming |
+| **三域命名** | 控制流/能力/交互的领域惯用名 | 编排上下文(Graph)/Tools/LLM协议 | DAG调度/算子/数据Schema |
+| **S0-S4 映射** | 通用演进档位的领域术语 | S0=ReAct, S1=Plan-Execute, S2=多源RAG, S3=Multi-Agent, S4=Context Engineering | S0=单节点ETL, S1=DAG调度, S2=多源Join, S3=流批一体, S4=数据质量+可观测 |
+| **信源站点** | 该领域一线工程博客的主要站点 | Anthropic/OpenAI/LangChain Blog | Confluent/Databricks/Uber Engineering |
+| **术语统一表** | 该课系列内部术语 | 见 quality-guide.md §4 | Phase 0 填入 |
+
+---
+
+## 2. 三域命名映射参考
+
+通用三域（控制流/能力/交互）到各领域的映射参考（可调整）：
+
+| 通用域 | AI Agent | 数据工程 | 微服务 | 前端工程 |
+|:---|:---|:---|:---|:---|
+| **控制流域**（紫） | Graph编排/状态机 | DAG Scheduler/作业编排 | Orchestrator/Service Mesh/编排引擎 | 状态管理/路由/框架调度 |
+| **能力域**（绿） | Tools/Function Calling | Operators/Connectors/UDF | Services/Adapters/Sidecars | Hooks/Components/Utils |
+| **交互域**（蓝） | LLM I/O协议/Tool Schema | Data Schema/API/序列化协议 | API Gateway/Event Contract/gRPC | Props/Events/API Contract |
+
+> 以上映射仅供参考，最终以 Phase 0 用户确认为准。如果某个领域有更自然的"三域"分法（如数据工程可能更自然地分为"存储/计算/传输"），按领域自然分法走。
+
+---
+
+## 3. S0-S4 演进模型映射参考
+
+### 3.1 映射原则
+
+S0-S4 是通用的"从原型到生产"五阶段模型。映射到具体领域时需回答：
+- S0：该领域最小可用的原型形态是什么？（单点、单线程、无持久化）
+- S1：第一个架构升级是什么？（拆分编排、显式状态、可中断）
+- S2：能力扩展到多路时的形态？（多数据源、多算子、多服务接入+融合）
+- S3：并行/分布式的形态？（多 Worker、多分区、多副本）
+- S4：生产级工程化需要什么？（可观测、评估/回归、灰度、运维）
+
+### 3.2 映射示例
+
+| 档位 | AI Agent | 数据工程 | 微服务 | 前端工程 |
+|:---|:---|:---|:---|:---|
+| **S0 能用** | ReAct 单 Agent 循环 | 单节点 ETL 脚本 | 单体应用 | 单页面 jQuery/原生 JS |
+| **S1 可控** | Plan-Execute 拆分 | DAG 调度 + 显式状态 | 服务拆分 + API 网关 | 组件化框架（React/Vue）+ 状态管理 |
+| **S2 多源** | Web + Vector + SQL 多路 + Rerank | 多源 Join + 数据质量 | 多服务编排 + 事件驱动 | SSR/SSG + 数据层（GraphQL/React Query）+ 缓存 |
+| **S3 并行** | Multi-Agent 并行 Worker | 流批一体 + 分区并行 | Service Mesh + 多副本 + 熔断 | Micro-frontends + Edge Computing + Web Worker |
+| **S4 好用** | Context Engineering + LLM-as-judge + Rainbow deployment | 数据质量监控 + 血缘追踪 + A/B 测试 | 全链路可观测 + 灰度发布 + 混沌工程 | 性能监控 + 用户体验指标 + 灰度发布 + Design System |
+
+---
+
+## 4. 代码审查技术栈扩展
+
+当课程使用 Java/TS 以外的技术栈（Python/Go/Rust 等）时：
+
+1. 通用审查维度（维度1-2, 4-8）自动适用
+2. 框架专属审查项（维度3）按检测到的框架应用最佳实践
+3. 当前未内置深度规则的语言/框架：
+   - 使用通用软件工程原则审查
+   - 不强行套用 Java/TS 规则
+   - 必要时在 Phase 0 与用户确认该栈的关键审查点
+
+---
+
+## 5. 什么场景不需要演进路线段
+
+以下类型不需要"架构演进路线"收口段：
+- **单节课/迷你课**：没有系列课的前后衔接需求
+- **公开课**：转化承接比架构演进更重要
+- **晋升/面试辅导**：核心是个人价值叙事，不是系统架构
+- **录播课入门章节**：前几章讲基础概念，还没到演进视角
+
+以下类型建议包含：
+- **实战课系列课**（≥3 课时）：尤其是中后期课时
+- **架构设计专项课**：演进视角是核心教学目标
+
+---
+
+## 6. 内置领域 vs 新领域
+
+| 项目 | 内置 AI Agent 领域 | 新领域适配 |
+|:---|:---|:---|
+| Phase 0 声明项 | 可跳过（已默认） | 必填 |
+| 三域命名 | 上下文/工具/协议 | Phase 0 确认 |
+| S0-S4 映射 | 已内置（ReAct→Plan-Execute→多源→多Agent→工程化） | Phase 0 确认映射 |
+| 代码审查 | Java/TS 深度规则 | 通用规则 + 框架专项 |
+| 工业案例信源 | Anthropic/OpenAI/LangChain 等 | Phase 0 确认主要信源 |
+| SVG 配色 | 三域紫/绿/蓝（通用配色，标签换即可） | 配色不变，标签换 |
+| 术语表 | 已内置部分（课时X、收口等） | Phase 0 填入 |
+
+适配新领域不需要修改 skill 文件本身，只需在 Phase 0 产出的"内容定位卡"中包含上述声明项即可。
