@@ -88,7 +88,7 @@
    - 信源：一线公司技术博客、Staff+ 工程师个人博客
    - 找到至少 1 篇工业界在讨论同一问题的文章作为来源
 
-**示例**（课时 7 BI Agent）：
+**示例**（BI Agent 场景）：
 > 本课的 BI Agent 是单 Agent 五节点 Pipeline（Planner→SQL Gen→Execute→Retry→Chart），适合几十张表的单业务域场景。如果要支持几百张表、多业务域的企业级数据环境，纯靠 LLM 找表准确率会掉到 10% 以下。你会怎么重构架构？考虑语义层设计、任务拆分粒度、元数据管理三个维度。
 > 追问 1：语义模型你会自己设计 Text-to-DSL，还是接现成的语义层（如 Looker Semantic Layer、dbt Semantic Layer）？选型依据是什么？
 > 追问 2：如果选择 Multi-Agent 拆分，按什么维度拆最合理（数据源/分析类型/用户角色）？拆多了会带来什么新问题？
