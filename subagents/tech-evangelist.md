@@ -21,6 +21,8 @@
 
 ## 审查报告格式
 
+> 完整模板与其他子agent报告模板见 `references/templates.md` §7.3。
+
 产出文件写入 `.course/{task_name}/phase-5/tech-review-report.md`，格式如下：
 
 ```markdown

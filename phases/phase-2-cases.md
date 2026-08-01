@@ -41,7 +41,7 @@
 
 #### 调研通道（强制）
 
-工业案例调研**必须通过 agent-reach skill 执行**，禁止用通用 WebSearch 替代：
+工业案例调研**优先通过 agent-reach skill 执行**：
 1. 先用 agent-reach 的 `web` 分类定向检索一线工程博客
    （Anthropic / Netflix / Uber / Meta / ByteDance / Google / LinkedIn / Slack 等 Engineering Blog）
 2. 再用 `dev` 分类检索 GitHub 开源项目的 RFC / Architecture Decision Record
@@ -51,6 +51,8 @@
 - 通用模板：`{领域} architecture evolution production case study`
 - 短板反推：基于本课起点档（S0）的实际失败模式，反推下一档关键词
   （例：若 S0 瓶颈是"串行执行慢" → 搜 `parallel {领域} production architecture`）
+
+> **降级说明**：若 agent-reach skill 未安装或不可用，可使用 WebSearch + WebFetch 组合替代，但必须遵循相同的信源优先级和新鲜度约束。
 
 #### 采集硬约束
 
@@ -111,10 +113,12 @@
 
 #### 调研通道（强制）
 
-候选题检索**必须通过 agent-reach skill 执行**：
+候选题检索**优先通过 agent-reach skill 执行**：
 - 主要用 `search` 分类的 Exa 网页搜索（`exa.web_search_exa`）
 - 文章全文阅读用 `web` 分类的 Jina Reader（`curl https://r.jina.ai/URL`）
 - 禁止用通用 WebSearch 搜"XX 面试题"直接凑题（出来的都是八股）
+
+> **降级说明**：若 agent-reach skill 未安装或不可用，可使用 WebSearch + WebFetch 组合替代，但必须遵循相同的信源优先级和新鲜度约束。
 
 #### 候选题卡片格式
 

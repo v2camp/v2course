@@ -120,7 +120,7 @@
 
 ### 4.3 检索工具使用规范
 
-**必须通过 agent-reach skill 执行**，禁止用通用 WebSearch。
+**优先通过 agent-reach skill 执行**。若 agent-reach skill 未安装或不可用，可使用 WebSearch + WebFetch 组合替代，但必须遵循相同的信源优先级和新鲜度约束。
 
 核心命令：
 ```bash

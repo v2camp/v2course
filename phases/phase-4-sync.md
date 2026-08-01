@@ -57,7 +57,7 @@
 ## 本阶段产出
 
 - 更新后的核心产物（如 `大纲.md`, `晋升汇报.md` 等）。
-- `.course/{task_name}/phase-4/sync-record.md` 对齐记录（按 L1-L4 分层记录）。
+- `.course/{task_name}/phase-4/sync-record.md` 对齐记录（按 L1-L4 分层记录）。路径规则：若有项目目录则在项目根目录下，否则在当前工作目录下。
 
 ## sync-record.md 模板
 

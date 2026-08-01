@@ -68,9 +68,10 @@
 3. **企业技术白皮书 / 开源项目 RFC / Architecture Decision Record**
 4. **高质量技术媒体深度报道**（如 The New Stack、InfoQ 深度长文）
 
-### 3.4 调研通道（必须使用 agent-reach skill）
+### 3.4 调研通道（优先使用 agent-reach skill）
 
-工业案例调研**必须通过 agent-reach skill 执行**，禁止使用通用 WebSearch 替代：
+工业案例调研**优先通过 agent-reach skill 执行**：
+若 agent-reach skill 未安装或不可用，可使用 WebSearch + WebFetch 组合替代，但必须遵循相同的信源优先级和新鲜度约束。
 
 1. 先用 agent-reach 的 `web` 分类定向检索一线工程博客
 2. 再用 `dev` 分类检索 GitHub 开源项目的 RFC / Architecture 文档
@@ -185,10 +186,10 @@
 ### 6.2 档位拓扑图
 
 - 每档至少 1 张，展示该档位的核心拓扑变化
-- P1 Plan-Execute：展示 think 拆分为 planner+executor
-- P2 多源融合：展示多路工具 + Rerank
-- P3 多 Agent：展示 Orchestrator + 并行 Worker
-- P4 工程化：展示上下文工程 + 评估闭环
+- S1 Plan-Execute：展示 think 拆分为 planner+executor
+- S2 多源融合：展示多路工具 + Rerank
+- S3 多 Agent：展示 Orchestrator + 并行 Worker
+- S4 工程化：展示上下文工程 + 评估闭环
 - 统一使用三域配色（控制流紫/能力绿/交互蓝）
 - 推荐尺寸：viewBox="0 0 800 400"
 

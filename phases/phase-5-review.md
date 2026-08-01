@@ -2,11 +2,11 @@
 
 ## 目标
 
-通过多重视角评估（运营+学员+求职者）及专家独立审查，确保内容彻底戒除 AI 腔、提供极致的视觉美感与多维价值，达到 卓越品质标准。
+通过多重视角评估（六视角（运营+学员+代码+演进路线+深入思考题+代码引用/飞书兼容））及专家独立审查，确保内容彻底戒除 AI 腔、提供极致的视觉美感与多维价值，达到 卓越品质标准。
 
 ---
 
-## 1. 三重视角综合评估 (MANDATORY)
+## 1. 六视角综合评估 (MANDATORY)
 
 在专家审查前，主 Agent 必须完成以下自我评估。如果某项不合规，必须返回 Phase 3 修正。
 
@@ -31,7 +31,7 @@
 - **失败模式真实性**：3 类失败模式是否基于本课主 Demo 实际短板，而非套模板？
 
 ### 视角 E：附录深入思考题专项（实战课必检）
-对附录中每道题逐条检查：
+质量维度定义见 `references/interview-questions.md` §2。对附录中每道题逐条检查：
 - **E1 知识结构**：答案是否需要分层面/分维度组织（≥2 维度），不是单点背诵题？
 - **E2 紧扣超纲**：题干是否锚定了本课 Demo 具体元素，且问题指向正文未覆盖的深度/广度？
 - **E3 trade-off**：是否没有唯一答案，至少明确 2 个权衡维度？
@@ -46,7 +46,7 @@
 ### 视角 F：代码引用与飞书兼容专项（应用架构课必检）
 > 仅实战课·应用架构类型需要检查。基础/实战课跳过此视角。
 
-详细规范见 `references/architecture-course.md` 第四节。逐条检查：
+规范定义见 `references/code-reference-feishu.md`。逐条检查：
 
 - **F1 零 file:// 链接**：全文不得有任何 `file://` 开头的链接，不得有本地绝对路径的 Markdown 链接
 - **F2 类名行内代码格式**：所有引用的类名均使用行内代码格式（`` `ClassName` ``），确保学员可复制搜索
@@ -83,7 +83,11 @@
 ## 3. 执行步骤
 
 ### Step 1：主 Agent 专项质量自评
-- 结合 `references/quality-guide.md`、`references/evolution-roadmap.md`、`references/interview-questions.md` 和 `references/architecture-course.md`（应用架构课），对核心文稿进行逐段扫描。
+- 结合以下参考文件对核心文稿进行逐段扫描：
+  - 品质规范参考 `references/quality-guide.md`
+  - 演进路线参考 `references/evolution-roadmap.md`
+  - 深入思考题参考 `references/interview-questions.md`
+  - 代码引用/飞书兼容参考 `references/code-reference-feishu.md`
 - 产出 `.course/{task_name}/phase-5/evaluation-summary.md`，重点审计：
   - 是否存在禁用词（首先/其次/综上所述等）？
   - **情绪张力是否绝对基于真实案例？（严禁凭空捏造）**
