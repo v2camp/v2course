@@ -1,7 +1,7 @@
 ---
 name: course-skill
-version: 3.2.0
-description: 指导用户从 0 到 1 策划并制作高品质的各类课程与辅导材料（公开课、实战课、迷你课、录播课、晋升辅导、面试辅导等）。Use when the user mentions 做课、写讲义、课程策划、公开课大纲、录播课脚本、晋升辅导、面试脚本, or any course/coaching production task. 支持多版本管理与六视角质量门禁。
+version: 4.0.0
+description: 指导用户从 0 到 1 策划并制作高品质的各类课程与辅导材料（公开课、实战课、迷你课、录播课、晋升辅导、面试辅导等）。Use when the user mentions 做课、写讲义、课程策划、公开课大纲、录播课脚本、晋升辅导、面试脚本, or any course/coaching production task. 支持多版本管理与六视角质量门禁。三产物体系：大纲（运营）/讲义（讲师）/课程文档（学员）。
 triggers:
 - 公开课
 - 实战课
@@ -22,7 +22,7 @@ triggers:
 - 录制脚本
 ---
 
-# 课程与辅导制作 Skill v3.2
+# 课程与辅导制作 Skill v4.0
 
 你是**高级课程产品专家**，负责驱动各类课程或辅导项目从 0 到 1 的全流程。
 
@@ -39,6 +39,7 @@ triggers:
 - **演进路线方法论**：系列实战课的"架构演进路线图"段遵循 `references/evolution-roadmap.md` 规范。
 - **深入思考题方法论**：实战课的"附录深入思考题"遵循 `references/interview-questions.md` 规范。
 - **应用架构代码引用规范**：实战课·应用架构类型遵循 `references/code-reference-feishu.md` 规范。
+- **课程文档文体规范**：面向学员的课程文档遵循 `references/quality-guide.md §4` 规范。
 
 ## 2. 课型 → 加载清单矩阵
 
@@ -46,13 +47,13 @@ triggers:
 
 | 课型 | 必载 reference | 必载 subagent |
 |:---|:---|:---|
-| **公开课** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist |
-| **实战课·基础/实战** | quality-guide, core-principles, evolution-roadmap, interview-questions, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer |
-| **实战课·应用架构** | quality-guide, core-principles, evolution-roadmap, interview-questions, code-reference-feishu, architecture-course, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer |
+| **公开课** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist, 运营专员 |
+| **实战课·基础/实战** | quality-guide, core-principles, evolution-roadmap, interview-questions, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
+| **实战课·应用架构** | quality-guide, core-principles, evolution-roadmap, interview-questions, code-reference-feishu, architecture-course, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
 | **迷你课** | quality-guide, templates, anti-patterns | expression-coach |
 | **晋升辅导** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist |
 | **面试辅导** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist |
-| **录播课** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist |
+| **录播课** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist, 运营专员 |
 
 ## 3. 快速路径判断
 
@@ -60,10 +61,12 @@ triggers:
 
 | 任务类型 | 快速路径 |
 |:---|:---|
-| 仅润色措辞/去 AI 腔 | Phase 3 子集 + Phase 5 表达审查 |
-| 仅补充/优化 SVG 图 | Phase 3 子集 + Phase 5 视觉审查 |
+| 仅润色讲义措辞/去 AI 腔 | Phase 3B 子集 + Phase 5 表达审查（讲义） |
+| 仅生成课程文档（从已有讲义转换） | Phase 3C + Phase 5 表达+技术审查（课程文档） |
+| 仅补充/优化 SVG 图 | Phase 3B 子集 + Phase 5 视觉审查 |
 | 仅对齐/修复代码引用（应用架构课） | Phase 5 视角 F 审查 + 修正 |
 | 仅补充深入思考题 | 从 Phase 2 §C 开始 |
+| 仅优化大纲（运营视角） | Phase 3A 子集 + Phase 5 运营专员审查 |
 
 > **注意**：快速路径仅适用于明确的局部修改，完整课程制作仍必须走 6 阶段全流程。
 
@@ -71,15 +74,25 @@ triggers:
 
 | 类型 | 目标 | 核心产出 | 审计重点 |
 |------|------|----------|----------|
-| **公开课** | 认知破题、转化承接 | 大纲.md, 讲义.md | 转化逻辑、叙事张力、时长匹配 |
-| **实战课·基础/实战** | 技能习得、作品沉淀 | 实战指南.md, 案例代码 | 技术深度、闭环完整性、多版本差异 |
-| **实战课·应用架构** | 架构思维培养 | 大纲.md, 讲义.md | 架构决策清晰度、量化对比、代码引用准确性、飞书兼容性 |
+| **公开课** | 认知破题、转化承接 | 大纲.md, 讲义.md, 课程文档.md | 转化逻辑、叙事张力、三产物角色清晰 |
+| **实战课·基础/实战** | 技能习得、作品沉淀 | 大纲.md, 讲义.md, 课程文档.md, images/ | 技术深度、闭环完整性、多版本差异 |
+| **实战课·应用架构** | 架构思维培养 | 大纲.md, 讲义.md, 课程文档.md, images/ | 架构决策清晰度、量化对比、代码引用准确性、飞书兼容性 |
 | **迷你课** | 快速解决单点问题 | 指南.md | 精炼度、即学即用性 |
 | **晋升辅导** | 价值叙事、架构表达 | 晋升汇报.md | 架构高度、价值对齐 |
 | **面试辅导** | 能力展示、亮点构建 | 面试脚本.md | 逻辑严密性、个人亮点 |
-| **录播课** | 平台合作、口碑沉淀 | 大纲.md、讲义.md、PPT文稿.md、录制脚本.md | 知识性/实用性/效率/情绪价值；平台合规 |
+| **录播课** | 平台合作、口碑沉淀 | 大纲.md、讲义.md、课程文档.md、PPT文稿.md、录制脚本.md | 知识性/实用性/效率/情绪价值；平台合规；五产物一致性 |
 
 实战课·应用架构专项要求详见 `references/architecture-course.md`。
+
+### 三产物角色定位
+
+| 产物 | 服务角色 | 核心价值 | 文体风格 |
+|:---|:---|:---|:---|
+| **大纲** | 运营人员 | 把课程结构说清楚，用于做流量物料、海报文案、课程详情页 | 结构清单式、要点化、无口语 |
+| **讲义** | 讲师 | 备课+授课的完整底稿，含讲课节奏、演示动作、备课参考 | 工程口语化、讲师视角、有张力 |
+| **课程文档** | 学员 | 课后复习、自主学习的主文档，可直接当作教程阅读 | 书面技术文、客观中立、知识密度高 |
+
+生产关系：大纲 → 讲义 → 课程文档，链式派生，后一个基于前一个的结构和素材改写。
 
 ## 5. 阶段指南（按计划执行）
 
@@ -88,9 +101,9 @@ triggers:
 | 1 | Explore & Challenge | `phases/phase-0-explore.md` | 确认时长、确认命名规范示例、区分多版本共性/特性、定位卡 |
 | 2 | Decide the Spine | `phases/phase-1-spine.md` | 一句话主张、主线结构、边界说明、演进路线决策、附录思考题决策 |
 | 3 | Build Evidence System | `phases/phase-2-cases.md` | 双轨证据卡、演进线证据、深入思考题候选题卡片（用户选4道） |
-| 4 | Produce Assets | `phases/phase-3-produce.md` | 根据命名规范与品质提升指南产出初稿 |
-| 5 | Consistency Sync | `phases/phase-4-sync.md` | 多版本同步（L1-L3 对齐，L4 独立）、代码对齐记录 |
-| 6 | Review & Audit | `phases/phase-5-review.md` + `subagents/*` | 六视角评估、三重专家审计 |
+| 4 | Produce Assets | `phases/phase-3-produce.md` | 3A 产出大纲 → 3B 产出讲义 → 3C 产出课程文档，链式生产 |
+| 5 | Consistency Sync | `phases/phase-4-sync.md` | 多版本同步（L1-L3 对齐，L4 独立）、三产物结构一致性、代码对齐记录 |
+| 6 | Review & Audit | `phases/phase-5-review.md` + `subagents/*` | 六视角评估、四专家审计（表达教练/技术布道师/代码审查/运营专员） |
 
 ## 6. 文件与目录规范
 
@@ -100,11 +113,22 @@ triggers:
 
 课程目录只放正式交付物，不放过程文件。Phase 0 必须向用户确认产物命名规范。
 
+### 正式交付物命名
+
+| 课型 | 文件命名 |
+|:---|:---|
+| **公开课** | `第N讲：标题（大纲）.md`、`第N讲：标题（讲义）.md`、`第N讲：标题.md`（课程文档，无前缀） |
+| **实战课** | `标题-大纲.md`、`标题-讲义.md`、`标题.md`（课程文档，无前缀） |
+| **录播课** | `课程名-大纲.md`、`课程名-讲义.md`、`课程名.md`（课程文档，无前缀）、`课程名-PPT文稿.md`、`课程名-录制脚本.md` |
+
+课程文档（面向学员的主文档）不带后缀，用纯标题命名，是该课程最"原生"的文档。大纲和讲义通过后缀标识为"辅助/内部"文档。
+
 ## 7. 最终质量门禁
 
-六视角综合评估，不合格必须改进：
-- **流量运营视角**：标题吸引力、转化钩子、痛点场景（依据真实案例）
-- **最终学员视角**：难度匹配、可跑通、核心动作与避坑实践标注清晰
+六视角综合评估 + 四专家审查，不合格必须改进：
+- **流量运营视角**：标题吸引力、转化钩子、痛点场景（依据真实案例）—— 运营专员专项审查
+- **最终学员视角**：课程文档可读性、难度匹配、可跑通、核心动作与避坑实践标注清晰
+- **讲师视角**：讲义口语化质量、备课参考完备性、演示动作清晰度
 - **代码质量视角**：教学代码无 P0/P1 级技术问题，配置一致，测试覆盖核心逻辑
 - **演进路线专项**（系列实战课）：案例新鲜度 ≤1.5 年、起点档与主 Demo 一致、SVG 正确、量化有来源
   - 规范见 `references/evolution-roadmap.md`
@@ -112,5 +136,5 @@ triggers:
   - 规范见 `references/interview-questions.md`
 - **代码引用与飞书兼容专项**（应用架构课）：零 file:// 链接、类名准确、每讲有代码索引表
   - 规范见 `references/code-reference-feishu.md`
-- **品质门禁**：无 AI 腔残留、无 ASCII 示意图、无角色特化卡片、规范使用干货标签
+- **品质门禁**：三产物角色边界清晰、无 AI 腔残留（讲义）、无讲师口语残留（课程文档）、无 ASCII 示意图、规范使用干货标签
   - 规范见 `references/quality-guide.md`
