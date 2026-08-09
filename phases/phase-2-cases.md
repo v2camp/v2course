@@ -43,7 +43,7 @@
 
 工业案例调研**优先通过 agent-reach skill 执行**：
 1. 先用 agent-reach 的 `web` 分类定向检索一线工程博客
-   （Anthropic / Netflix / Uber / Meta / ByteDance / Google / LinkedIn / Slack 等 Engineering Blog）
+   （Anthropic / Netflix / Uber / Meta / ByteDance / Google / LinkedIn / Slack / meituan / alibaba / tencent  等 Engineering Blog）
 2. 再用 `dev` 分类检索 GitHub 开源项目的 RFC / Architecture Decision Record
 3. 必要时用 `search` 分类做补充检索（顶级会议分享、技术白皮书）
 

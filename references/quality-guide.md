@@ -116,11 +116,16 @@
     *   节点说明文本：`font-size: 12px; fill: #64748b;`
 *   **连接线箭头**：必须使用 `<defs>` 定义箭头 marker（如 `#arrow`），连线用 `stroke: #94a3b8; stroke-width: 2; marker-end: url(#arrow);`。
 
-### 3.3 SVG 文件与引用规范
+### 3.3 图片文件与引用规范（普适规范，覆盖 SVG / 位图 / 图表）
 
-1.  **独立存储**：绝对不要把 SVG 的 XML 源码大段贴在 Markdown 讲义中。必须存放在当前课程目录下的 `images/` 子文件夹下。
-2.  **绝对禁止 ASCII**：扫描到 `┌─┐` 或 `| --> |` 等 ASCII 字符，一律使用 Python 脚本或手动重构为 SVG。
-3.  **引用路径**：使用相对路径引用，如 `![RAG 四步链路](./images/rag-4-steps.svg)`。
+本规范适用于**所有图片资源**（SVG 矢量图、PNG/JPG 位图、图表截图、数据图），不限于 SVG。
+
+1.  **独立存储，禁止任何内嵌**：任何图片**一律禁止以 base64 或 data URI 形式直接写在 Markdown 文档中**，包括 `![](data:image/png;base64,...)`、`![](data:image/svg+xml;base64,...)` 等形式。所有图片必须以独立文件存放在当前课程目录下的 `images/` 子文件夹中，用相对路径引用。
+2.  **SVG 优先**：架构图、流程图、拓扑图、对比图等图形化表达，优先产出 SVG 矢量图（可无损缩放、飞书/Obsidian 双端兼容），不要用 PNG 位图。
+3.  **位图/图表的处理**：确需使用位图（如数据曲线图、真实截图）时，保存为独立 PNG/JPG 文件存入 `images/`，同样以相对路径引用，禁止 base64 内嵌。
+4.  **数据表格优先用 Markdown 表格**：指标对比、评测结果、数据列表等**结构化数据**，优先用 Markdown 表格呈现（应用架构课遵循 `references/architecture-course.md` 的指标对比表规范），**不要生成截图**。只有确需可视化趋势/结构关系时才配图。
+5.  **绝对禁止 ASCII 图**：扫描到 `┌─┐` 或 `| --> |` 等 ASCII 字符，一律使用 Python 脚本或手动重构为 SVG。
+6.  **引用路径**：使用相对路径引用，如 `![RAG 四步链路](./images/rag-4-steps.svg)`、`![分片策略评测曲线](./images/sharding-eval-curve.png)`。
 
 ---
 
