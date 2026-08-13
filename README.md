@@ -17,6 +17,7 @@
 │   └── phase-5-review.md     # 审查与审计（六视角+三重专家，含应用架构课专项审查）
 ├── references/               # 规范与参考指南
 │   ├── anti-patterns.md      # 反模式（绝对禁止的写法）
+│   ├── architecture-case-writing.md # 架构案例分析书写作规范（李智慧风格基准）
 │   ├── architecture-course.md # 实战课·应用架构专项方法论
 │   ├── boundary.md           # 边界说明
 │   ├── core-principles.md    # 核心原则（含应用架构课专项原则）
@@ -42,6 +43,10 @@ Use Skill: course-skill 帮我为《XX实战课》写一份大纲
 
 ### Skill 依赖
 - **agent-reach**：Phase 2 工业案例调研与深入思考题候选题检索必须通过 agent-reach skill 执行联网研究。
+- **architecture-case-writing**：创作架构案例分析书等长文档时，遵循该 reference 的写作规范（风格基准为李智慧《大型网站技术架构》）。
+
+### 架构案例分析书
+从一组场景题/素材创作架构案例分析书时，触发 course-skill 并遵循 `references/architecture-case-writing.md` 的六步生产流程（场景拆解 → 案例调研 → 大纲设计 → 分章撰写 → 合并统稿 → 质量审查）。
 
 ## 🤝 贡献与维护
 

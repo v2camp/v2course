@@ -1,7 +1,7 @@
 ---
 name: course-skill
 version: 4.0.0
-description: 指导用户从 0 到 1 策划并制作高品质的各类课程与辅导材料（公开课、实战课、迷你课、录播课、晋升辅导、面试辅导等）。Use when the user mentions 做课、写讲义、课程策划、公开课大纲、录播课脚本、晋升辅导、面试脚本, or any course/coaching production task. 支持多版本管理与六视角质量门禁。三产物体系：大纲（运营）/讲义（讲师）/课程文档（学员）。
+description: 指导用户从 0 到 1 策划并制作高品质的各类课程与辅导材料（公开课、实战课、迷你课、录播课、晋升辅导、面试辅导等），也可创作架构案例分析书等长文档。Use when the user mentions 做课、写讲义、课程策划、公开课大纲、录播课脚本、晋升辅导、面试脚本、架构案例分析书、写架构书、案例书, or any course/coaching production task. 支持多版本管理与六视角质量门禁。三产物体系：大纲（运营）/讲义（讲师）/课程文档（学员）。
 triggers:
 - 公开课
 - 实战课
@@ -20,6 +20,11 @@ triggers:
 - 录播课
 - PPT文稿
 - 录制脚本
+- 架构案例分析书
+- 架构书
+- 案例分析书
+- 案例书
+- 架构案例分析
 ---
 
 # 课程与辅导制作 Skill v4.0
@@ -40,6 +45,7 @@ triggers:
 - **深入思考题方法论**：实战课的"附录深入思考题"遵循 `references/interview-questions.md` 规范。
 - **应用架构代码引用规范**：实战课·应用架构类型遵循 `references/code-reference-feishu.md` 规范。
 - **课程文档文体规范**：面向学员的课程文档遵循 `references/quality-guide.md §4` 规范。
+- **架构案例写作规范**：架构类长文档（应用架构课课程文档、架构案例分析书等）遵循 `references/architecture-case-writing.md` 规范，风格基准为李智慧《大型网站技术架构》。
 
 ## 2. 课型 → 加载清单矩阵
 
@@ -49,11 +55,12 @@ triggers:
 |:---|:---|:---|
 | **公开课** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist, 运营专员 |
 | **实战课·基础/实战** | quality-guide, core-principles, evolution-roadmap, interview-questions, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
-| **实战课·应用架构** | quality-guide, core-principles, evolution-roadmap, interview-questions, code-reference-feishu, architecture-course, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
+| **实战课·应用架构** | quality-guide, **architecture-case-writing**, core-principles, evolution-roadmap, interview-questions, code-reference-feishu, architecture-course, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
 | **迷你课** | quality-guide, templates, anti-patterns | expression-coach |
 | **晋升辅导** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist |
 | **面试辅导** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist |
 | **录播课** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist, 运营专员 |
+| **架构案例分析书** | quality-guide, **architecture-case-writing**, templates, anti-patterns | expression-coach, tech-evangelist |
 
 ## 3. 快速路径判断
 
@@ -67,6 +74,7 @@ triggers:
 | 仅对齐/修复代码引用（应用架构课） | Phase 5 视角 F 审查 + 修正 |
 | 仅补充深入思考题 | 从 Phase 2 §C 开始 |
 | 仅优化大纲（运营视角） | Phase 3A 子集 + Phase 5 运营专员审查 |
+| 从一组场景题/素材生成架构案例分析书 | 架构书专用流程（见 §5 下方说明）+ Phase 5 技术+表达审查 |
 
 > **注意**：快速路径仅适用于明确的局部修改，完整课程制作仍必须走 6 阶段全流程。
 
@@ -81,6 +89,7 @@ triggers:
 | **晋升辅导** | 价值叙事、架构表达 | 晋升汇报.md | 架构高度、价值对齐 |
 | **面试辅导** | 能力展示、亮点构建 | 面试脚本.md | 逻辑严密性、个人亮点 |
 | **录播课** | 平台合作、口碑沉淀 | 大纲.md、讲义.md、课程文档.md、PPT文稿.md、录制脚本.md | 知识性/实用性/效率/情绪价值；平台合规；五产物一致性 |
+| **架构案例分析书** | 架构思维体系化呈现 | 一本成体系的书（`.md`，多章节） | 结构模板遵循、数字量化、案例可靠性、兜底思维、小结提炼原则 |
 
 实战课·应用架构专项要求详见 `references/architecture-course.md`。
 
@@ -104,6 +113,19 @@ triggers:
 | 4 | Produce Assets | `phases/phase-3-produce.md` | 3A 产出大纲 → 3B 产出讲义 → 3C 产出课程文档，链式生产 |
 | 5 | Consistency Sync | `phases/phase-4-sync.md` | 多版本同步（L1-L3 对齐，L4 独立）、三产物结构一致性、代码对齐记录 |
 | 6 | Review & Audit | `phases/phase-5-review.md` + `subagents/*` | 六视角评估、四专家审计（表达教练/技术布道师/代码审查/运营专员） |
+
+### 架构案例分析书专用流程（非课程，独立长文档）
+
+架构案例分析书不从"大纲→讲义→课程文档"链条派生，而是从一组场景题/素材直接产出一本成体系的书。遵循 `references/architecture-case-writing.md` 的六步流程：
+
+1. **场景拆解**：确定本书有几个场景、每个场景的核心问题、场景间的递进关系
+2. **案例调研**：每个场景收集 ≥3 个工业界真实案例（案例卡片格式，交叉验证）
+3. **大纲设计**：确定章节结构，分配知识点和案例，遵循"挑战→策略→架构→治理→小结"五段式
+4. **分章撰写**：按大纲逐章完成初稿（可并行），每章严格遵循结构模板
+5. **合并统稿**：统一风格、术语、格式，检查案例重复、数字一致性、衔接流畅
+6. **质量审查**：AI 腔扫描、结构完整性、数字量化、案例可靠性、兜底思维、小结质量
+
+> 架构书与课程质量门禁的差异：架构书不检查演进路线（S0-S4）、思考题、代码引用等课程专项，但必须满足 `quality-guide.md` 的底线规范（去 AI 腔、无 ASCII 图、SVG 规范）与 `architecture-case-writing.md` 的高阶文体要求。
 
 ## 6. 文件与目录规范
 
