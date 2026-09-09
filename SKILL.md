@@ -54,8 +54,8 @@ triggers:
 | 课型 | 必载 reference | 必载 subagent |
 |:---|:---|:---|
 | **公开课** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist, 运营专员 |
-| **实战课·基础/实战** | quality-guide, core-principles, evolution-roadmap, interview-questions, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
-| **实战课·应用架构** | quality-guide, **architecture-case-writing**, core-principles, evolution-roadmap, interview-questions, code-reference-feishu, architecture-course, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
+| **实战课·基础/实战** | quality-guide, core-principles, evolution-roadmap, interview-questions, multi-track-production, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
+| **实战课·应用架构** | quality-guide, **architecture-case-writing**, core-principles, evolution-roadmap, interview-questions, code-reference-feishu, architecture-course, multi-track-production, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
 | **迷你课** | quality-guide, templates, anti-patterns | expression-coach |
 | **晋升辅导** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist |
 | **面试辅导** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist |
@@ -72,6 +72,8 @@ triggers:
 | 仅生成课程文档（从已有讲义转换） | Phase 3C + Phase 5 表达+技术审查（课程文档） |
 | 仅补充/优化 SVG 图 | Phase 3B 子集 + Phase 5 视觉审查 |
 | 仅对齐/修复代码引用（应用架构课） | Phase 5 视角 F 审查 + 修正 |
+| 跨版本转换/复制（已有某版本完整产物） | Phase 3D（转换子代理）+ Phase 4 L0 红线扫描 + Phase 5 表达+技术审查 |
+| 双轨/多轨净新建（从单一源头派生第二/第三轨） | 新流程（契约映射表先行 → 反向派生，见 `references/multi-track-production.md`）+ Phase 4 L0 红线扫描 |
 | 仅补充深入思考题 | 从 Phase 2 §C 开始 |
 | 仅优化大纲（运营视角） | Phase 3A 子集 + Phase 5 运营专员审查 |
 | 从一组场景题/素材生成架构案例分析书 | 架构书专用流程（见 §5 下方说明）+ Phase 5 技术+表达审查 |
@@ -110,8 +112,8 @@ triggers:
 | 1 | Explore & Challenge | `phases/phase-0-explore.md` | 确认时长、确认命名规范示例、区分多版本共性/特性、定位卡 |
 | 2 | Decide the Spine | `phases/phase-1-spine.md` | 一句话主张、主线结构、边界说明、演进路线决策、附录思考题决策 |
 | 3 | Build Evidence System | `phases/phase-2-cases.md` | 双轨证据卡、演进线证据、深入思考题候选题卡片（用户选4道） |
-| 4 | Produce Assets | `phases/phase-3-produce.md` | 3A 产出大纲 → 3B 产出讲义 → 3C 产出课程文档，链式生产 |
-| 5 | Consistency Sync | `phases/phase-4-sync.md` | 多版本同步（L1-L3 对齐，L4 独立）、三产物结构一致性、代码对齐记录 |
+| 4 | Produce Assets | `phases/phase-3-produce.md` | 3A 产出大纲 → 3B 产出讲义 → 3C 产出课程文档，链式生产；多版本复制转换走 3D（转换子代理） |
+| 5 | Consistency Sync | `phases/phase-4-sync.md` | 多版本同步（L0 版本独立红线 + L1-L3 对齐 + L4 独立）、三产物结构一致性、时间标记拉齐、附录对齐、代码对齐记录 |
 | 6 | Review & Audit | `phases/phase-5-review.md` + `subagents/*` | 六视角评估、四专家审计（表达教练/技术布道师/代码审查/运营专员） |
 
 ### 架构案例分析书专用流程（非课程，独立长文档）
@@ -152,6 +154,8 @@ triggers:
 - **最终学员视角**：课程文档可读性、难度匹配、可跑通、核心动作与避坑实践标注清晰
 - **讲师视角**：讲义口语化质量、备课参考完备性、演示动作清晰度
 - **代码质量视角**：教学代码无 P0/P1 级技术问题，配置一致，测试覆盖核心逻辑
+- **教学代码生产级门禁专项**（实战课）：代码可真实编译/运行并写明可复现运行环境，评测指标有基线对照与回退红线，课程内量化数字全部实测后写入
+  - 规范见 `references/multi-track-production.md`；在 Phase 5 视角 H 执行
 - **演进路线专项**（系列实战课）：案例新鲜度 ≤1.5 年、起点档与主 Demo 一致、SVG 正确、量化有来源
   - 规范见 `references/evolution-roadmap.md`
 - **附录深入思考题专项**（实战课）：三质量维度达标、候选题经人工确认、篇幅 ≤15%
