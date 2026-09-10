@@ -38,7 +38,8 @@
 
 你也可以通过显式指令调用：
 ```text
-Use Skill: course-skill 帮我为《XX实战课》写一份大纲
+Use Skill: course-skill 帮我为《XX实战课》写一份讲义
+Use Skill: course-skill 帮我为《XX公开课》写一份课程大纲
 ```
 
 ### Skill 依赖
