@@ -89,32 +89,14 @@
 
 ---
 
-## 3. SVG 矢量图形视觉设计规范 (SVG Design & Visual Spec)
+## 3. 制图规范（archsvg 驱动）
 
-禁止使用 ASCII 字符或简易表格草率画流程图。必须产出高美感、独立文件的 SVG，并用 Markdown 进行引用。
+架构图 / 流程图 / 序列图一律走 archsvg 生成，禁止模型手写 SVG、手写坐标或主观选配色。调用约定、三域 role 配色、回执驱动的质量门禁见 `references/diagram-integration.md`。
 
-### 3.1 主题配色规范 (Theming)
+- 禁止使用 ASCII 字符或简易表格草率画流程图。架构/流程/序列图一律走 archsvg（IR→validate→render）生成独立 SVG，再用 Markdown 引用。
+- 配色 / 字体 / 字号 / 箭头 / 暗色模式等由 archsvg 统一（三域 role 配色），course-skill 不再规定具体色值或坐标；详细规范在 archsvg 自身文档。
 
-统一采用**现代扁平科技风**，推荐使用以下配色族，以确保图形在亮色或暗色模式（如飞书暗色、Obsidian 暗色）下都清晰美观：
-
-*   **背景色 (Background)**: 浅灰蓝 `#f8fafc` 或深蓝灰 `#0f172a`（大块底板尽量使用带圆角的 `rx: 12` 矩形）。
-*   **控制流域（编排/调度/状态）**: 紫色系 — 浅紫背景 `#fdf4ff`，主边框/文字 `#c084fc` 或 `#a21caf`。
-*   **能力域（工具/算子/外部系统）**: 绿色系 — 浅绿背景 `#f0fdf4`，主边框/文字 `#4ade80` 或 `#166534`。
-*   **交互域（协议/接口/数据契约）**: 蓝色系 — 浅蓝背景 `#eff6ff`，主边框/文字 `#60a5fa` 或 `#1e40af`。
-*   **警告/冲突节点**: 橙红色 — 背景 `#fef2f2`，主边框/文字 `#ef4444`。
-
-> 三域是通用配色分类。具体领域可做领域化命名（如 AI Agent 域=上下文/工具/协议，数据工程域=调度/算子/契约），但配色统一。详见 `references/evolution-roadmap.md` §2。
-
-### 3.2 字体与排版细节规范
-
-*   **统一字体**：在 SVG 的 `<style>` 中，必须指定 `font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;`。
-*   **居中对齐**：使用 `text-anchor="middle"` 处理节点内的标题。
-*   **尺寸与比例**：
-    *   主画布推荐比例：`viewBox="0 0 800 400"` 或 `viewBox="0 0 800 500"`。
-    *   主标题字体：`font-size: 24px; font-weight: bold; fill: #0f172a;`
-    *   子节点标题：`font-size: 16px; font-weight: bold;`
-    *   节点说明文本：`font-size: 12px; fill: #64748b;`
-*   **连接线箭头**：必须使用 `<defs>` 定义箭头 marker（如 `#arrow`），连线用 `stroke: #94a3b8; stroke-width: 2; marker-end: url(#arrow);`。
+> 以下 `### 3.3` 为**普适图片规范**，覆盖所有图片（含截图 / 位图 / 外部图），与 archsvg 互补共存，不得因改用 archsvg 而删除。
 
 ### 3.3 图片文件与引用规范（普适规范，覆盖 SVG / 位图 / 图表）
 
@@ -124,7 +106,7 @@
 2.  **SVG 优先**：架构图、流程图、拓扑图、对比图等图形化表达，优先产出 SVG 矢量图（可无损缩放、飞书/Obsidian 双端兼容），不要用 PNG 位图。
 3.  **位图/图表的处理**：确需使用位图（如数据曲线图、真实截图）时，保存为独立 PNG/JPG 文件存入 `images/`，同样以相对路径引用，禁止 base64 内嵌。
 4.  **数据表格优先用 Markdown 表格**：指标对比、评测结果、数据列表等**结构化数据**，优先用 Markdown 表格呈现（应用架构课遵循 `references/architecture-course.md` 的指标对比表规范），**不要生成截图**。只有确需可视化趋势/结构关系时才配图。
-5.  **绝对禁止 ASCII 图**：扫描到 `┌─┐` 或 `| --> |` 等 ASCII 字符，一律使用 Python 脚本或手动重构为 SVG。
+5.  **绝对禁止 ASCII 图**：扫描到 `┌─┐` 或 `| --> |` 等 ASCII 字符，一律走 archsvg 渲染（IR→validate→render）重构为 SVG。
 6.  **引用路径**：使用相对路径引用，如 `![RAG 四步链路](./images/rag-4-steps.svg)`、`![分片策略评测曲线](./images/sharding-eval-curve.png)`。
 
 ---
@@ -169,7 +151,7 @@
 - ✅ 核心技术原理和架构设计
 - ✅ 代码示例（但讲解方式从口播式转为注释式）
 - ✅ 【知识点】和【要点】干货标注
-- ✅ SVG 架构图/流程图
+- ✅ 架构图/流程图（archsvg 渲染的 SVG）
 - ✅ 问题场景和技术动机（但表达方式转为客观描述）
 - ✅ 深入思考题题干和追问
 - ✅ 来源与参考链接

@@ -54,8 +54,8 @@ triggers:
 | 课型 | 必载 reference | 必载 subagent |
 |:---|:---|:---|
 | **公开课** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist, 运营专员 |
-| **实战课·基础/实战** | quality-guide, core-principles, evolution-roadmap, interview-questions, multi-track-production, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
-| **实战课·应用架构** | quality-guide, **architecture-case-writing**, core-principles, evolution-roadmap, interview-questions, code-reference-feishu, architecture-course, multi-track-production, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
+| **实战课·基础/实战** | quality-guide, **diagram-integration**, core-principles, evolution-roadmap, interview-questions, multi-track-production, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
+| **实战课·应用架构** | quality-guide, **diagram-integration**, **architecture-case-writing**, core-principles, evolution-roadmap, interview-questions, code-reference-feishu, architecture-course, multi-track-production, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
 | **迷你课** | quality-guide, templates, anti-patterns | expression-coach |
 | **晋升辅导** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist |
 | **面试辅导** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist |
@@ -70,7 +70,7 @@ triggers:
 |:---|:---|
 | 仅润色讲义措辞/去 AI 腔 | Phase 3B 子集 + Phase 5 表达审查（讲义） |
 | 仅生成课程文档（从已有讲义转换） | Phase 3C + Phase 5 表达+技术审查（课程文档） |
-| 仅补充/优化 SVG 图 | Phase 3B 子集 + Phase 5 视觉审查 |
+| 仅补充/优化制图（走 archsvg：IR→validate→render） | Phase 3B 子集 + Phase 5 视觉审查（读 archsvg 回执）；详见 `references/diagram-integration.md` |
 | 仅对齐/修复代码引用（应用架构课） | Phase 5 视角 F 审查 + 修正 |
 | 跨版本转换/复制（已有某版本完整产物） | Phase 3D（转换子代理）+ Phase 4 L0 红线扫描 + Phase 5 表达+技术审查 |
 | 双轨/多轨净新建（从单一源头派生第二/第三轨） | 新流程（契约映射表先行 → 反向派生，见 `references/multi-track-production.md`）+ Phase 4 L0 红线扫描 |
@@ -127,7 +127,7 @@ triggers:
 5. **合并统稿**：统一风格、术语、格式，检查案例重复、数字一致性、衔接流畅
 6. **质量审查**：AI 腔扫描、结构完整性、数字量化、案例可靠性、兜底思维、小结质量
 
-> 架构书与课程质量门禁的差异：架构书不检查演进路线（S0-S4）、思考题、代码引用等课程专项，但必须满足 `quality-guide.md` 的底线规范（去 AI 腔、无 ASCII 图、SVG 规范）与 `architecture-case-writing.md` 的高阶文体要求。
+> 架构书与课程质量门禁的差异：架构书不检查演进路线（S0-S4）、思考题、代码引用等课程专项，但必须满足 `quality-guide.md` 的底线规范（去 AI 腔、无 ASCII 图、制图走 archsvg，详见 `references/diagram-integration.md`）与 `architecture-case-writing.md` 的高阶文体要求。
 
 ## 6. 文件与目录规范
 
@@ -158,11 +158,11 @@ triggers:
   - 规范见 `references/multi-track-production.md`；在 Phase 5 视角 H 执行
 - **应用架构课工业落地验收专项**（实战课·应用架构）：应用架构课代码以**工业项目落地标准**驱动，而非仅为完成课程演示。验收须"主要用户动线端到端跑通 + 无明显体验问题 + 评测指标达标"三者同过，禁止"演示可跑、指标不达标"的双轨验收；教学脚手架必须透明演化为生产级交付物并过评测，不得保留为可丢弃的 demo
   - 规范见 `references/multi-track-production.md` §2.4；在 Phase 5 视角 H 执行
-- **演进路线专项**（系列实战课）：案例新鲜度 ≤1.5 年、起点档与主 Demo 一致、SVG 正确、量化有来源
+- **演进路线专项**（系列实战课）：案例新鲜度 ≤1.5 年、起点档与主 Demo 一致、图正确（archsvg 渲染、引用路径正确、回执通过）、量化有来源
   - 规范见 `references/evolution-roadmap.md`
 - **附录深入思考题专项**（实战课）：三质量维度达标、候选题经人工确认、篇幅 ≤15%
   - 规范见 `references/interview-questions.md`
 - **代码引用与飞书兼容专项**（应用架构课）：零 file:// 链接、类名准确、每讲有代码索引表
   - 规范见 `references/code-reference-feishu.md`
-- **品质门禁**：三产物角色边界清晰、无 AI 腔残留（讲义）、无讲师口语残留（课程文档）、无 ASCII 示意图、规范使用干货标签
+- **品质门禁**：三产物角色边界清晰、无 AI 腔残留（讲义）、无讲师口语残留（课程文档）、无 ASCII 示意图（矢量图统一走 archsvg，见 `references/diagram-integration.md`）、规范使用干货标签
   - 规范见 `references/quality-guide.md`

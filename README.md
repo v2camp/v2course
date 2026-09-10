@@ -24,11 +24,11 @@
 │   ├── domain-adaptation.md  # 领域适配指南（新领域使用）
 │   ├── evolution-roadmap.md  # 架构演进路线方法论（S0-S4 模型+工业案例规范）
 │   ├── interview-questions.md # 附录深入思考题方法论（三质量维度+候选题路径+写作规范）
-│   ├── quality-guide.md      # 品质提升指南（去 AI 腔、SVG 规范、三域配色）
+│   ├── quality-guide.md      # 品质提升指南（去 AI 腔、制图规范（archsvg 驱动）、三域配色）
 │   └── templates.md          # 常用模板
 └── subagents/                # 辅助子 Agent 设定
     ├── code-reviewer.md     # 代码审查专家（技术栈自适应）
-    ├── expression-coach.md   # 表达教练（语调/张力/排版/SVG/演进路线/思考题表达）
+    ├── expression-coach.md   # 表达教练（语调/张力/排版/制图(archsvg)/演进路线/思考题表达）
     └── tech-evangelist.md   # 技术布道师（讲义技术准确性与代码一致性、关联阅读来源验证、应用架构课代码引用校验）
 ```
 

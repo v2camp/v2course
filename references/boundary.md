@@ -57,7 +57,7 @@
 以下明确的局部修改场景可跳过部分阶段，直接进入对应环节：
 
 - **仅润色已有讲义的措辞/去 AI 腔** → 直接进入 Phase 3 子集 + Phase 5 表达审查
-- **仅补充/优化 SVG 图** → 直接进入 Phase 3 子集 + Phase 5 视觉审查
+- **仅补充/优化制图（走 archsvg）** → 直接进入 Phase 3 子集 + Phase 5 视觉审查（读 archsvg 回执）；详见 `references/diagram-integration.md`
 - **仅对齐/修复代码引用（应用架构课）** → 直接进入 Phase 5 视角 F 审查 + 修正
 - **仅补充深入思考题** → 从 Phase 2 §C 开始
 
