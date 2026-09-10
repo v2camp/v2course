@@ -20,12 +20,13 @@
 ```bash
 node <archsvg>/bin/archsvg.mjs doctor
 node <archsvg>/bin/archsvg.mjs guide "<场景>"
-node <archsvg>/bin/archsvg.mjs validate <type> <input.json> [--quality standard|showcase] [--json]
-node <archsvg>/bin/archsvg.mjs render   <type> <input.json> <output.svg> [--quality standard|showcase] [--json]
+node <archsvg>/bin/archsvg.mjs validate <type> <input.json> [--quality standard|showcase] [--variant-pair <dir>] [--json]
+node <archsvg>/bin/archsvg.mjs render   <type> <input.json> <output.svg> [--quality standard|showcase] [--variant-pair <dir>] [--json]
 ```
 
 - `<type>` ∈ `architecture` / `flow` / `sequence`
 - `--quality`：`standard` 跑 12 项检查，`showcase` 跑满 15 项检查（默认建议用 `showcase`）
+- `--variant-pair <dir>`：传**双轨根目录**（其下各轨为子目录），启用 `variant_parity` 检查各轨 `images/*.svg` 数量与文件名是否一致；不传则该项按"跳过"处理（仍计入总数但恒为 `ok`）
 - **退出码**：`0` 通过 / `1` 验证失败 / `2` 用法错误
 - 质量档位只由 `--quality` 决定，不写进 IR
 
@@ -103,7 +104,7 @@ course-skill **不得写死** archsvg 的绝对路径。运行时按已知位置
 
 1. 已通过 `archsvg render --quality showcase --json`，回执 `ok: true`；
 2. 读取 `composition.summary`：`passed === total`（showcase 档须 **15/15**）方算通过；
-3. 逐条核对 `checks[]` 中的 6 项课程专项是否全过：`no_ascii` / `no_base64` / `ref_reachable` / `caption_present` / `theme_readable` / `dual_track_parity`；
+3. 逐条核对 `checks[]` 中的 6 项文档集成专项是否全过：`no_ascii` / `no_base64` / `ref_reachable` / `caption_present` / `theme_readable` / `variant_parity`；
 4. 9 项构图检查（finite_svg / node_overlap / relationship_crossings / label_route_clearance / orthogonal_arrows / relationship_corridors / container_border_runs / route_rhythm / legend_clearance）须全部 `ok`。
 
 **有界重试**：若 `validate` 报错，按回执 `supportedFixes` 修复后重跑；连续两轮修复未降低错误数即**停止并如实报告**未解决诊断，禁止以裁剪内容、`overflow:hidden`、缩小字号等手段伪造通过。
@@ -126,9 +127,9 @@ course-skill **不得写死** archsvg 的绝对路径。运行时按已知位置
 |:---|:---|:---|
 | **实战课（含演进路线）** | 演进路线图：总图（S0→S4 横向卡片、本课档位高亮）+ 每档 ≥1 张拓扑图；起点档描述须与主 Demo 代码一致 | 类型 `flow` + `stages`（档位即 stage）；course 检查 `caption_present` + 图数量；起点对齐由人工/技术布道师核对代码 |
 | **实战课·应用架构** | 图中类名/包名须与真实代码 100% 一致；指标对比、评测结果等结构化数据用 **Markdown 表格**，不配图 | `architecture` 类型；代码一致性 archsvg **不校验**，须由技术布道师审 G2–G7；对比表走 Markdown |
-| **双轨（TS/Java）** | `images/` 图数量与语义对齐，两轨语义对应、布局可由 archsvg 不同但含义一致 | `dual_track_parity` 检查（图数量 + 语义对齐）；两轨各自渲染、成对产出，不漏轨 |
+| **双轨（TS/Java）** | `images/` 图数量与语义对齐，两轨语义对应、布局可由 archsvg 不同但含义一致 | `variant_parity` 检查（图数量）；两轨各自渲染、成对产出，不漏轨；**语义对齐** archsvg 不校验，须人工/技术布道师核 |
 | **录播课** | 文档内架构/流程/序列图走本管线；**PPT 用图**可接受位图（见 §3.3），不强制 archsvg | 文档矢量图 → architecture/flow/sequence；PPT 用图见 §3.3 |
-| **架构案例分析书** | 图遵循底线规范（禁 ASCII、走 archsvg），无额外专项；封面/架构图用 archsvg | architecture/flow 由 archsvg 渲染；无 dual_track 要求 |
+| **架构案例分析书** | 图遵循底线规范（禁 ASCII、走 archsvg），无额外专项；封面/架构图用 archsvg | architecture/flow 由 archsvg 渲染；无 variant_parity 要求 |
 
 > 共性底线（所有课型）：禁 ASCII、禁 base64/内嵌、独立文件存 `images/`、相对路径引用、数据表优先 Markdown、截图/位图单列（§3.3 保留）。
 
