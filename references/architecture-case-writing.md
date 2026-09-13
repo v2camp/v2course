@@ -368,8 +368,9 @@
 |:---|:---|:---|
 | `quality-guide.md` | 底线规范，所有课程必须遵守 | 最高（违反即不合格） |
 | 本规范 | 架构类内容的高阶文体规范 | 高（架构类内容必须遵守） |
+| `architecture-narrative.md` | 架构叙述方式专项规范，句段级落笔细则（本规范管结构，它管叙述） | 高（与本规范配套使用） |
 | `anti-patterns.md` | 反面案例，避免踩坑 | 中（写作前浏览一遍） |
 | `templates.md` | 结构模板参考 | 中（按需参考） |
 | `evolution-roadmap.md` | 演进路线专项规范 | 中（涉及演进路线时加载） |
 
-使用顺序：先满足 `quality-guide.md` 的底线要求，再用本规范提升架构类内容的写作质感，涉及专项内容时再加载对应的 reference。
+使用顺序：先满足 `quality-guide.md` 的底线要求，再用本规范提升架构类内容的写作质感，叙述落笔时对照 `architecture-narrative.md`，涉及专项内容时再加载对应的 reference。
