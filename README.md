@@ -17,15 +17,21 @@
 │   └── phase-5-review.md     # 审查与审计（六视角+三重专家，含应用架构课专项审查）
 ├── references/               # 规范与参考指南
 │   ├── anti-patterns.md      # 反模式（绝对禁止的写法）
-│   ├── architecture-case-writing.md # 架构案例分析书写作规范（李智慧风格基准）
-│   ├── architecture-course.md # 实战课·应用架构专项方法论
+│   ├── architecture-case-writing.md # 架构案例分析书写作规范（李智慧风格基准，管结构）
+│   ├── architecture-course.md # 实战课·应用架构专项方法论（含读者假设与叙述基调）
+│   ├── architecture-narrative.md # 架构叙述方式规范（八大病灶，管句段级叙述质量）
 │   ├── boundary.md           # 边界说明
+│   ├── code-reference-feishu.md # 应用架构课代码引用规范（飞书兼容，双锚点法）
 │   ├── core-principles.md    # 核心原则（含应用架构课专项原则）
+│   ├── diagram-integration.md # 制图规范（archsvg 驱动）
 │   ├── domain-adaptation.md  # 领域适配指南（新领域使用）
 │   ├── evolution-roadmap.md  # 架构演进路线方法论（S0-S4 模型+工业案例规范）
 │   ├── interview-questions.md # 附录深入思考题方法论（三质量维度+候选题路径+写作规范）
-│   ├── quality-guide.md      # 品质提升指南（去 AI 腔、制图规范（archsvg 驱动）、三域配色）
+│   ├── multi-track-production.md # 多版本生产规范（教学代码生产级门禁）
+│   ├── quality-guide.md      # 品质提升指南（去 AI 腔、三产物规范、三域配色）
 │   └── templates.md          # 常用模板
+├── examples/                 # 风格锚点样本（动笔前的质感对齐）
+│   └── architecture-style-anchor.md # 李智慧式写作样本（开场/演进叙事/小结/语言质感）
 └── subagents/                # 辅助子 Agent 设定
     ├── code-reviewer.md     # 代码审查专家（技术栈自适应）
     ├── expression-coach.md   # 表达教练（语调/张力/排版/制图(archsvg)/演进路线/思考题表达）
@@ -45,6 +51,7 @@ Use Skill: course-skill 帮我为《XX公开课》写一份课程大纲
 ### Skill 依赖
 - **agent-reach**：Phase 2 工业案例调研与深入思考题候选题检索必须通过 agent-reach skill 执行联网研究。
 - **architecture-case-writing**：创作架构案例分析书等长文档时，遵循该 reference 的写作规范（风格基准为李智慧《大型网站技术架构》）。
+- **architecture-narrative + architecture-style-anchor**：架构类长文档（应用架构课、架构书）的叙述质量配套——narrative 定八大病灶检查标准，anchor 给动笔前的质感参照样本。
 
 ### 架构案例分析书
 从一组场景题/素材创作架构案例分析书时，触发 course-skill 并遵循 `references/architecture-case-writing.md` 的六步生产流程（场景拆解 → 案例调研 → 大纲设计 → 分章撰写 → 合并统稿 → 质量审查）。

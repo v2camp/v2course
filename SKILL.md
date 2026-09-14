@@ -47,7 +47,8 @@ triggers:
 - **应用架构代码引用规范**：实战课·应用架构类型遵循 `references/code-reference-feishu.md` 规范。
 - **课程文档文体规范**：面向学员的课程文档遵循 `references/quality-guide.md §4` 规范。
 - **架构案例写作规范**：架构类长文档（应用架构课课程文档、架构案例分析书等）遵循 `references/architecture-case-writing.md` 规范，风格基准为李智慧《大型网站技术架构》。
-- **架构叙述方式规范**：架构类长文档的句段级叙述质量（去电报体/清单体、演进线显性化、表后解读、术语首现即释）遵循 `references/architecture-narrative.md` 规范，与 architecture-case-writing.md 配套使用。
+- **架构叙述方式规范**：架构类长文档的句段级叙述质量（去电报体/清单体、演进线显性化、表后解读、术语首现即释、代码引用为锚、案例入正文）遵循 `references/architecture-narrative.md` 规范（八大病灶），与 architecture-case-writing.md 配套使用。
+- **风格锚点样本**：应用架构课与架构书动笔写正文前，通读 `examples/architecture-style-anchor.md` 对齐"李智慧式"质感（开场/演进叙事/小结/语言四个样本）。检查清单定底线，锚点样本给质感——两者配套。
 
 ## 2. 课型 → 加载清单矩阵
 
@@ -57,12 +58,12 @@ triggers:
 |:---|:---|:---|
 | **公开课** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist, 运营专员 |
 | **实战课·基础/实战** | quality-guide, **diagram-integration**, core-principles, evolution-roadmap, interview-questions, multi-track-production, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
-| **实战课·应用架构** | quality-guide, **diagram-integration**, **architecture-case-writing**, **architecture-narrative**, core-principles, evolution-roadmap, interview-questions, code-reference-feishu, architecture-course, multi-track-production, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
+| **实战课·应用架构** | quality-guide, **diagram-integration**, **architecture-case-writing**, **architecture-narrative**, **examples/architecture-style-anchor**, core-principles, evolution-roadmap, interview-questions, code-reference-feishu, architecture-course, multi-track-production, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
 | **迷你课** | quality-guide, templates, anti-patterns | expression-coach |
 | **晋升辅导** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist |
 | **面试辅导** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist |
 | **录播课** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist, 运营专员 |
-| **架构案例分析书** | quality-guide, **architecture-case-writing**, **architecture-narrative**, templates, anti-patterns | expression-coach, tech-evangelist |
+| **架构案例分析书** | quality-guide, **architecture-case-writing**, **architecture-narrative**, **examples/architecture-style-anchor**, templates, anti-patterns | expression-coach, tech-evangelist |
 
 ## 3. 快速路径判断
 
@@ -179,3 +180,5 @@ triggers:
   - 规范见 `references/code-reference-feishu.md`
 - **品质门禁**：三产物角色边界清晰、无 AI 腔残留（讲义）、无讲师口语残留（课程文档）、无 ASCII 示意图（矢量图统一走 archsvg，见 `references/diagram-integration.md`）、规范使用干货标签
   - 规范见 `references/quality-guide.md`
+- **架构叙述专项**（实战课·应用架构、架构案例分析书）：八大病灶逐段核对，其中病灶三（演进静态化）、四（术语无释）、五（开场没代入）、七（代码细节前置）、八（案例隔离）为必查项，不得抽样
+  - 规范见 `references/architecture-narrative.md`；写作前质感对齐见 `examples/architecture-style-anchor.md`
