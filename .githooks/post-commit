@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# post-commit —— 自动回填 AGENTS.md 的 revision 字段
+#
+# 触发条件：本次提交触及 SKILL.md 或 CHANGELOG.md（视为技能升级），
+# 且 AGENTS.md 的 revision 不等于该提交 hash 时，自动回填并补一个提交。
+# 回填提交以环境变量防递归；回填失败只告警，不阻断原提交。
+set -euo pipefail
+
+# 防递归：回填提交携带标记
+if [[ "${COURSE_SKILL_SKIP_REVISION:-}" == "1" ]]; then
+  exit 0
+fi
+
+repo_root="$(git rev-parse --show-toplevel)"
+agents_file="$repo_root/AGENTS.md"
+head_sha="$(git rev-parse --short HEAD)"
+
+# 仅当本次提交触及版本文件（升级提交）才处理
+changed="$(git diff-tree --no-commit-id --name-only -r HEAD)"
+if ! grep -qE '^(SKILL\.md|CHANGELOG\.md)$' <<<"$changed"; then
+  exit 0
+fi
+
+[[ -f "$agents_file" ]] || exit 0
+
+current="$(sed -nE 's/^\| revision \| ([^ ]+) \|.*$/\1/p' "$agents_file" | head -1)"
+[[ -n "$current" && "$current" != "$head_sha" ]] || exit 0
+
+if sed -i.bak -E "s/^\| revision \| .* \|.*$/| revision | $head_sha |/" "$agents_file" \
+  && rm -f "$agents_file.bak" \
+  && git add "$agents_file"; then
+  COURSE_SKILL_SKIP_REVISION=1 git commit -m "chore: 自动回填 revision 为 $head_sha" >/dev/null 2>&1 \
+    || echo "警告：revision 自动回填提交失败，请手动提交 AGENTS.md 的变更" >&2
+fi

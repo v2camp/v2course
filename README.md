@@ -6,6 +6,7 @@
 
 ```text
 .
+├── .githooks/                # Git 钩子（post-commit 自动回填 revision）
 ├── AGENTS.md                 # 版本自检协议与维护约束（供 Codex / Trae / Cursor 等读取）
 ├── SKILL.md                  # Skill 的核心入口与主控逻辑（含启用前版本自检）
 ├── CHANGELOG.md              # 版本变更日志（版本号 → 变更映射）

@@ -26,9 +26,25 @@
 
 1. `SKILL.md` frontmatter `version` 递增（semver：破坏性变更 → major，新增 → minor，修正 → patch）；
 2. `CHANGELOG.md` 顶部新增条目（版本号 + 日期 + 变更要点；破坏性变更单列标注）；
-3. 本文件「当前版本」段同步更新，并在提交后把 `revision` 回填为实际 commit hash。
+3. 本文件「当前版本」段同步更新版本号与变更指引；`revision` 由 `.githooks/post-commit` 在升级提交后自动回填，无需人工操作。
 
-升级完成后核对：三处版本号一致、`revision` 为真实 hash、CHANGELOG 与 SKILL.md 变更一一对应。
+升级完成后核对：三处版本号一致、`revision` 已自动回填、CHANGELOG 与 SKILL.md 变更一一对应。
+
+### 钩子安装（新机器 / 新克隆执行一次）
+
+```bash
+git config core.hooksPath .githooks
+```
+
+钩子行为：提交触及 `SKILL.md` 或 `CHANGELOG.md`（视为技能升级）时，自动将 `AGENTS.md` 的 `revision` 更新为该提交 hash，并追加一个回填提交；其他提交不触发。回填提交经环境变量防递归，不产生回填套回填。
+
+### revision 语义与版本核对
+
+`revision` 指向最近一次升级（版本号递增）所在提交的 hash，回填提交在其后追加。核对技能目录是否已包含某次升级：
+
+```bash
+git merge-base --is-ancestor <revision> HEAD   # 退出码 0 = 已包含
+```
 
 ## 目录结构
 
