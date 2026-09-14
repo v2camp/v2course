@@ -6,7 +6,9 @@
 
 ```text
 .
-├── SKILL.md                  # Skill 的核心入口与主控逻辑
+├── AGENTS.md                 # 版本自检协议与维护约束（供 Codex / Trae / Cursor 等读取）
+├── SKILL.md                  # Skill 的核心入口与主控逻辑（含启用前版本自检）
+├── CHANGELOG.md              # 版本变更日志（版本号 → 变更映射）
 ├── README.md                 # 本文件
 ├── phases/                   # 6 大核心执行阶段
 │   ├── phase-0-explore.md    # 探索与挑战（确认时长、规范、定位、演进位置；应用架构课需先探索代码架构）
