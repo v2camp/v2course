@@ -2,11 +2,11 @@
 
 本文件为 AI 编码工具（如 Codex、Trae、Cursor）提供操作指引，并承载本技能的版本状态、启用前自检协议与维护约束。
 
-## 当前版本：v4.2.0
+## 当前版本：v4.3.0
 
 | 字段 | 值 |
 |:---|:---|
-| version | 4.2.0（以 `SKILL.md` frontmatter 为准） |
+| version | 4.3.0（以 `SKILL.md` frontmatter 为准） |
 | revision | 02c9384 |
 | 最近变更 | 见 `CHANGELOG.md` 最新条目 |
 
