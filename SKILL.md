@@ -1,8 +1,8 @@
 ---
 name: course-skill
-version: 4.5.0
+version: 4.6.0
 agent_created: true
-description: This skill should be used when the user mentions 做课、写讲义、课程策划、公开课大纲、录播课脚本、晋升辅导、面试脚本、架构案例分析书、写架构书、案例书, or any course/coaching production task. 指导从 0 到 1 策划并制作高品质的各类课程与辅导材料（公开课、实战课、迷你课、录播课、晋升辅导、面试辅导等），也可创作架构案例分析书等长文档。支持多版本管理与六视角质量门禁。产物体系因课型而异——公开课三产物（大纲/讲义/课程文档）、实战课二产物（讲义/课程文档，无大纲）、录播课五产物。
+description: This skill should be used when the user mentions 做课、写讲义、课程策划、公开课大纲、录播课脚本、晋升辅导、面试脚本、架构案例分析书、写架构书、案例书, or any course/coaching production task. 指导从 0 到 1 策划并制作高品质的各类课程与辅导材料（公开课、实战课、迷你课、录播课、晋升辅导、面试辅导等），也可创作架构案例分析书等长文档。支持多版本管理与视角 A-H 质量门禁。产物体系因课型而异——公开课三产物（大纲/讲义/课程文档）、实战课二产物（讲义/课程文档，无大纲）、录播课五产物。
 triggers:
 - 公开课
 - 实战课
@@ -86,7 +86,7 @@ triggers:
 | 仅生成课程文档（从已有讲义转换） | Phase 3C + Phase 5 表达+技术审查（课程文档） |
 | 仅补充/优化制图（走 archsvg：IR→validate→render） | Phase 3B 子集 + Phase 5 视觉审查（读 archsvg 回执）；详见 `references/diagram-integration.md` |
 | 仅对齐/修复代码引用（应用架构课） | Phase 5 视角 F 审查 + 修正 |
-| 审查/复核/重新审已完成的课程产物（讲义/课程文档，非局部润色） | **先按 §2 课型矩阵对该课型加载完整必载 reference 清单**，再执行 Phase 5 全量六视角（A-H）审查 + 四专家审计；审查纪律与九维勾稽见 `references/review-checklist.md`。**禁止跳过必载清单降格为单文档文体润色** |
+| 审查/复核/重新审已完成的课程产物（讲义/课程文档，非局部润色） | **先按 §2 课型矩阵对该课型加载完整必载 reference 清单**，再执行 Phase 5 全量视角 A-H 审查 + 四专家审计；审查纪律与九维勾稽见 `references/review-checklist.md`。**禁止跳过必载清单降格为单文档文体润色** |
 | 跨版本转换/复制（已有某版本完整产物） | Phase 3D（转换子代理）+ Phase 4 L0 红线扫描 + Phase 5 表达+技术审查 |
 | 双轨/多轨净新建（从单一源头派生第二/第三轨） | 新流程（契约映射表先行 → 反向派生，见 `references/multi-track-production.md`）+ Phase 4 L0 红线扫描 |
 | 仅补充深入思考题 | 从 Phase 2 §C 开始 |
@@ -140,7 +140,7 @@ triggers:
 | 3 | Build Evidence System | `phases/phase-2-cases.md` | 双轨证据卡、演进线证据、深入思考题候选题卡片（用户选4道） |
 | 4 | Produce Assets | `phases/phase-3-produce.md` | **公开课/录播课**：3A 大纲 → 3B 讲义 → 3C 课程文档；**实战课**：跳过 3A，3B 讲义 → 3C 课程文档。链式生产；多版本复制转换走 3D（转换子代理） |
 | 5 | Consistency Sync | `phases/phase-4-sync.md` | 多版本同步（L0 版本独立红线 + L1-L3 对齐 + L4 独立）、产物结构一致性、时间标记拉齐、附录对齐、代码对齐记录 |
-| 6 | Review & Audit | `phases/phase-5-review.md` + `subagents/*` | 六视角评估、四专家审计（表达教练/技术布道师/代码审查/运营专员） |
+| 6 | Review & Audit | `phases/phase-5-review.md` + `subagents/*` | 视角 A-H 评估、四专家审计（表达教练/技术布道师/代码审查/运营专员） |
 
 ### 架构案例分析书专用流程（非课程，独立长文档）
 
@@ -175,13 +175,13 @@ triggers:
 
 ## 7. 最终质量门禁
 
-六视角综合评估 + 四专家审查，不合格必须改进：
+视角 A-H 综合评估 + 四专家审查，不合格必须改进：
 - **流量运营视角**：标题吸引力、转化钩子、痛点场景（依据真实案例）—— 运营专员专项审查
 - **最终学员视角**：课程文档可读性、难度匹配、可跑通、核心动作与避坑实践标注清晰
 - **讲师视角**：讲义口语化质量、备课参考完备性、演示动作清晰度
 - **代码质量视角**：教学代码无 P0/P1 级技术问题，配置一致，测试覆盖核心逻辑
 - **教学代码生产级门禁专项**（实战课）：代码可真实编译/运行并写明可复现运行环境，评测指标有基线对照与回退红线，课程内量化数字全部实测后写入
-  - 规范见 `references/multi-track-production.md`；在 Phase 5 视角 H 执行
+  - 规范见 `references/multi-track-production.md` §2（**2.1-2.3、2.5**；应用架构课另加 2.4）；在 Phase 5 视角 H 执行
 - **应用架构课工业落地验收专项**（实战课·应用架构）：应用架构课代码以**工业项目落地标准**驱动，而非仅为完成课程演示。验收须"主要用户动线端到端跑通 + 无明显体验问题 + 评测指标达标"三者同过，禁止"演示可跑、指标不达标"的双轨验收；教学脚手架必须透明演化为生产级交付物并过评测，不得保留为可丢弃的 demo
   - 规范见 `references/multi-track-production.md` §2.4；在 Phase 5 视角 H 执行
 - **演进路线专项**（系列实战课）：案例新鲜度 ≤1.5 年、起点档与主 Demo 一致、图正确（archsvg 渲染、引用路径正确、回执通过）、量化有来源
