@@ -23,7 +23,7 @@
 | **架构** | 架构决策是否讲 trade-off、是否讲"什么场景不需要这么复杂"；分层/模块边界是否清晰且与真实代码一致 | architecture-course §3.3（Context/Failure/Options/Decision/Consequences）、反过度设计 | 视角 D |
 | **演进** | 案例新鲜度 ≤1.5 年、起点档与主 Demo 一致、演进总图与各档存在且 archsvg 渲染、量化有来源、handoff 与下节课一致、失败模式真实 | evolution-roadmap（全部专项）；architecture-course §3.2 | 视角 E |
 | **措辞** | 去 AI 腔 / 去讲师口语彻底性、术语首现即释、无浮夸修饰、句段流畅非电报体 | quality-guide §4（文体 5 rules）；architecture-narrative 病灶二（电报体）、病灶四（术语无释） | 视角 B（讲义）· C（课程文档） |
-| **引用** | 代码引用零 file://、类名/路径与真实代码一致、每讲核心代码索引表完整准确、工业案例来源真实可验证且揉进正文 | phase-5-review 视角 G（G1-G10）；code-reference-feishu §6/§8；architecture-course §3.0（案例入正文、出处留延伸阅读） | 视角 G |
+| **引用** | 代码引用零 file://、类名/路径与真实代码一致、每讲核心代码索引表完整准确、工业案例来源真实可验证且揉进正文 | phase-5-review 视角 G（G1-G10）；code-reference-feishu §6/§8；multi-track-production §2.5（类名与取值的「文档→代码」核验）；architecture-course §3.0（案例入正文、出处留延伸阅读） | 视角 G |
 | **双端** | 讲义与课程文档技术内容完全对齐、无因文体转换引入偏差；双轨/多版本（TS/Java 等）结构 1:1、口径一致 | multi-track-production（L1-L4 对齐、跨轨残留白名单）；architecture-course Phase 4；course 全局同步规则 | 视角 D·H + Phase 4 |
 | **代码** | 教学代码可真实编译/运行、评测指标有基线对照与回退红线、量化数字实测后写入；应用架构课另需端到端跑通 + 无体验问题 + 禁止双轨验收。**另含代码对照：文档参数须与代码「生效值」一致（四层取值）、文档写成主链路的部件须真有调用点（已实现 ≠ 已接线）** | multi-track-production §2（2.1-2.5，**2.5 = 代码对照与接线核验**）；architecture-course §二（前置条件 8 条） | 视角 H + 代码审查专家 |
 
