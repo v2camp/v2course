@@ -2,11 +2,11 @@
 
 本文件为 AI 编码工具（如 Codex、Trae、Cursor）提供操作指引，并承载本技能的版本状态、启用前自检协议与维护约束。
 
-## 当前版本：v4.6.0
+## 当前版本：v4.6.1
 
 | 字段 | 值 |
 |:---|:---|
-| version | 4.6.0（以 `SKILL.md` frontmatter 为准） |
+| version | 4.6.1（以 `SKILL.md` frontmatter 为准） |
 | revision | e636130 |
 | 最近变更 | 见 `CHANGELOG.md` 最新条目 |
 
@@ -22,13 +22,14 @@
 
 ## 维护约束（升级者必读）
 
-每次升级技能必须三处同步，缺一不可：
+每次升级技能必须**四处**同步，缺一不可：
 
 1. `SKILL.md` frontmatter `version` 递增（semver：破坏性变更 → major，新增 → minor，修正 → patch）；
-2. `CHANGELOG.md` 顶部新增条目（版本号 + 日期 + 变更要点；破坏性变更单列标注）；
-3. 本文件「当前版本」段同步更新版本号与变更指引；`revision` 由 `.githooks/post-commit` 在升级提交后自动回填，无需人工操作。
+2. `SKILL.md` 正文标题的 `# 课程与辅导制作 Skill vX.Y`（**只写 `vMAJOR.MINOR`**）——易漏：4.6.0 升级即漏改此处，于 4.6.1 补；
+3. `CHANGELOG.md` 顶部新增条目（版本号 + 日期 + 变更要点；破坏性变更单列标注）；
+4. 本文件「当前版本」段同步更新版本号与变更指引；`revision` 由 `.githooks/post-commit` 在升级提交后自动回填，无需人工操作。
 
-升级完成后核对：三处版本号一致、`revision` 已自动回填、CHANGELOG 与 SKILL.md 变更一一对应。
+升级完成后核对：**四处**版本号一致（`grep -n 'Skill v4' SKILL.md` 应命中正文标题且与 frontmatter 主次版本相同）、`revision` 已自动回填、CHANGELOG 与 SKILL.md 变更一一对应。
 
 ### 钩子安装（新机器 / 新克隆执行一次）
 

@@ -1,6 +1,6 @@
 ---
 name: course-skill
-version: 4.6.0
+version: 4.6.1
 agent_created: true
 description: This skill should be used when the user mentions 做课、写讲义、课程策划、公开课大纲、录播课脚本、晋升辅导、面试脚本、架构案例分析书、写架构书、案例书, or any course/coaching production task. 指导从 0 到 1 策划并制作高品质的各类课程与辅导材料（公开课、实战课、迷你课、录播课、晋升辅导、面试辅导等），也可创作架构案例分析书等长文档。支持多版本管理与视角 A-H 质量门禁。产物体系因课型而异——公开课三产物（大纲/讲义/课程文档）、实战课二产物（讲义/课程文档，无大纲）、录播课五产物。
 triggers:
@@ -28,9 +28,11 @@ triggers:
 - 架构案例分析
 ---
 
-# 课程与辅导制作 Skill v4.5
+# 课程与辅导制作 Skill v4.6
 
 你是**高级课程产品专家**，负责驱动各类课程或辅导项目从 0 到 1 的全流程。
+
+**适用范围 / 不适用范围**与**6 阶段方法论骨架速查**见 `references/boundary.md`。
 
 ## 0. 启用前版本自检（必做）
 
@@ -85,7 +87,7 @@ triggers:
 | 仅润色讲义措辞/去 AI 腔 | Phase 3B 子集 + Phase 5 表达审查（讲义） |
 | 仅生成课程文档（从已有讲义转换） | Phase 3C + Phase 5 表达+技术审查（课程文档） |
 | 仅补充/优化制图（走 archsvg：IR→validate→render） | Phase 3B 子集 + Phase 5 视觉审查（读 archsvg 回执）；详见 `references/diagram-integration.md` |
-| 仅对齐/修复代码引用（应用架构课） | Phase 5 视角 F 审查 + 修正 |
+| 仅对齐/修复代码引用（应用架构课） | Phase 5 **视角 G**（代码引用与飞书兼容）审查 + 修正；取值与调用点核验见 `references/multi-track-production.md` §2.5 |
 | 审查/复核/重新审已完成的课程产物（讲义/课程文档，非局部润色） | **先按 §2 课型矩阵对该课型加载完整必载 reference 清单**，再执行 Phase 5 全量视角 A-H 审查 + 四专家审计；审查纪律与九维勾稽见 `references/review-checklist.md`。**禁止跳过必载清单降格为单文档文体润色** |
 | 跨版本转换/复制（已有某版本完整产物） | Phase 3D（转换子代理）+ Phase 4 L0 红线扫描 + Phase 5 表达+技术审查 |
 | 双轨/多轨净新建（从单一源头派生第二/第三轨） | 新流程（契约映射表先行 → 反向派生，见 `references/multi-track-production.md`）+ Phase 4 L0 红线扫描 |

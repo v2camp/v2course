@@ -46,7 +46,7 @@ node <archsvg>/bin/archsvg.mjs render   <type> <input.json> <output.svg> [--qual
 - **flow**：`stages?`（演进路线档位）+ `nodes[]`（kind: start/step/decision/terminal）+ `edges?`
 - **sequence**：`participants[]` + `messages[]`（kind: sync/async/return/self）
 
-具体字段以 archsvg 自带 `schemas/*.schema.json` 与 `references/diagram-spec.md` 为准（course-skill 不重述色值/坐标）。
+具体字段以 archsvg 自带 `schemas/*.schema.json` 与 `.agents/skills/archsvg/references/diagram-spec.md` 为准（course-skill 不重述色值/坐标）。
 
 ### `--json` 回执形状
 
