@@ -26,7 +26,7 @@
 │   ├── boundary.md           # 边界说明
 │   ├── code-reference-feishu.md # 应用架构课代码引用规范（飞书兼容，双锚点法）
 │   ├── core-principles.md    # 核心原则（含应用架构课专项原则）
-│   ├── diagram-integration.md # 制图规范（archsvg 驱动）
+│   ├── diagram-integration.md # 制图规范（v2svg 驱动）
 │   ├── domain-adaptation.md  # 领域适配指南（新领域使用）
 │   ├── evolution-roadmap.md  # 架构演进路线方法论（S0-S4 模型+工业案例规范）
 │   ├── interview-questions.md # 附录深入思考题方法论（三质量维度+候选题路径+写作规范）
@@ -37,7 +37,7 @@
 │   └── architecture-style-anchor.md # 李智慧式写作样本（开场/演进叙事/小结/语言质感）
 └── subagents/                # 辅助子 Agent 设定
     ├── code-reviewer.md     # 代码审查专家（技术栈自适应）
-    ├── expression-coach.md   # 表达教练（语调/张力/排版/制图(archsvg)/演进路线/思考题表达）
+    ├── expression-coach.md   # 表达教练（语调/张力/排版/制图(v2svg)/演进路线/思考题表达）
     └── tech-evangelist.md   # 技术布道师（讲义技术准确性与代码一致性、关联阅读来源验证、应用架构课代码引用校验）
 ```
 

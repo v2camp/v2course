@@ -8,7 +8,7 @@
 
 - **升级漏改 H1 版本号**：`SKILL.md` 正文标题仍写 `Skill v4.5`，frontmatter 却已是 4.6.0。**这是第四个同步点**——原「维护约束」只写三处，导致"三处都对、正文标题却是旧版"。`AGENTS.md`「维护约束」已改为**四处同步**（frontmatter `version` ＋ 正文 H1 `Skill vX.Y` ＋ CHANGELOG 条目 ＋ AGENTS「当前版本」段），核对项与自检命令一并补上。
 - **视角字母指错（2 处）**：`SKILL.md` §3 与 `boundary.md` 都把「仅对齐/修复代码引用（应用架构课）」的审查写成 **视角 F**。但视角 F 是**附录深入思考题专项**，代码引用与飞书兼容是**视角 G**。已改为 G，并补 `§2.5` 指针（取值与调用点核验）。
-- **悬空引用（1 处）**：`references/diagram-integration.md` 让读者去看 `references/diagram-spec.md`，但该文件**不在 course-skill 内**，实际位于 **archsvg** 技能的 `references/`。已限定归属并给出完整路径，避免"照着引用找不到文件"。
+- **悬空引用（1 处）**：`references/diagram-integration.md` 让读者去看 `references/diagram-spec.md`，但该文件**不在 course-skill 内**，实际位于 **v2svg** 技能的 `references/`。已限定归属并给出完整路径，避免"照着引用找不到文件"。
 - **不可达文件（1 处）**：`references/boundary.md` 从未被 `SKILL.md` 引用（只在 `README.md` 目录树里出现过），且其「快速路径适用场景」段是 `SKILL.md` §3 的**过时子集**（漏三条、且含上面那个 F/G 错）。现：该段改为指向 `SKILL.md` §3 的指针（消双份维护），并在 `SKILL.md` 开头挂上可达指针（适用范围 ＋ 方法论骨架速查）。
 
 ## 4.6.0 - 2026-09-16

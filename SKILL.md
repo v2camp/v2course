@@ -86,7 +86,7 @@ triggers:
 |:---|:---|
 | 仅润色讲义措辞/去 AI 腔 | Phase 3B 子集 + Phase 5 表达审查（讲义） |
 | 仅生成课程文档（从已有讲义转换） | Phase 3C + Phase 5 表达+技术审查（课程文档） |
-| 仅补充/优化制图（走 archsvg：IR→validate→render） | Phase 3B 子集 + Phase 5 视觉审查（读 archsvg 回执）；详见 `references/diagram-integration.md` |
+| 仅补充/优化制图（走 v2svg：IR→validate→render） | Phase 3B 子集 + Phase 5 视觉审查（读 v2svg 回执）；详见 `references/diagram-integration.md` |
 | 仅对齐/修复代码引用（应用架构课） | Phase 5 **视角 G**（代码引用与飞书兼容）审查 + 修正；取值与调用点核验见 `references/multi-track-production.md` §2.5 |
 | 审查/复核/重新审已完成的课程产物（讲义/课程文档，非局部润色） | **先按 §2 课型矩阵对该课型加载完整必载 reference 清单**，再执行 Phase 5 全量视角 A-H 审查 + 四专家审计；审查纪律与九维勾稽见 `references/review-checklist.md`。**禁止跳过必载清单降格为单文档文体润色** |
 | 跨版本转换/复制（已有某版本完整产物） | Phase 3D（转换子代理）+ Phase 4 L0 红线扫描 + Phase 5 表达+技术审查 |
@@ -155,7 +155,7 @@ triggers:
 5. **合并统稿**：统一风格、术语、格式，检查案例重复、数字一致性、衔接流畅
 6. **质量审查**：AI 腔扫描、结构完整性、数字量化、案例可靠性、兜底思维、小结质量
 
-> 架构书与课程质量门禁的差异：架构书不检查演进路线（S0-S4）、思考题、代码引用等课程专项，但必须满足 `quality-guide.md` 的底线规范（去 AI 腔、无 ASCII 图、制图走 archsvg，详见 `references/diagram-integration.md`）与 `architecture-case-writing.md` 的高阶文体要求。
+> 架构书与课程质量门禁的差异：架构书不检查演进路线（S0-S4）、思考题、代码引用等课程专项，但必须满足 `quality-guide.md` 的底线规范（去 AI 腔、无 ASCII 图、制图走 v2svg，详见 `references/diagram-integration.md`）与 `architecture-case-writing.md` 的高阶文体要求。
 
 ## 6. 文件与目录规范
 
@@ -186,13 +186,13 @@ triggers:
   - 规范见 `references/multi-track-production.md` §2（**2.1-2.3、2.5**；应用架构课另加 2.4）；在 Phase 5 视角 H 执行
 - **应用架构课工业落地验收专项**（实战课·应用架构）：应用架构课代码以**工业项目落地标准**驱动，而非仅为完成课程演示。验收须"主要用户动线端到端跑通 + 无明显体验问题 + 评测指标达标"三者同过，禁止"演示可跑、指标不达标"的双轨验收；教学脚手架必须透明演化为生产级交付物并过评测，不得保留为可丢弃的 demo
   - 规范见 `references/multi-track-production.md` §2.4；在 Phase 5 视角 H 执行
-- **演进路线专项**（系列实战课）：案例新鲜度 ≤1.5 年、起点档与主 Demo 一致、图正确（archsvg 渲染、引用路径正确、回执通过）、量化有来源
+- **演进路线专项**（系列实战课）：案例新鲜度 ≤1.5 年、起点档与主 Demo 一致、图正确（v2svg 渲染、引用路径正确、回执通过）、量化有来源
   - 规范见 `references/evolution-roadmap.md`
 - **附录深入思考题专项**（实战课）：三质量维度达标、候选题经人工确认、篇幅 ≤15%
   - 规范见 `references/interview-questions.md`
 - **代码引用与飞书兼容专项**（应用架构课）：零 file:// 链接、类名准确、每讲有代码索引表
   - 规范见 `references/code-reference-feishu.md`
-- **品质门禁**：三产物角色边界清晰、无 AI 腔残留（讲义）、无讲师口语残留（课程文档）、无 ASCII 示意图（矢量图统一走 archsvg，见 `references/diagram-integration.md`）、规范使用干货标签
+- **品质门禁**：三产物角色边界清晰、无 AI 腔残留（讲义）、无讲师口语残留（课程文档）、无 ASCII 示意图（矢量图统一走 v2svg，见 `references/diagram-integration.md`）、规范使用干货标签
   - 规范见 `references/quality-guide.md`
 - **架构叙述专项**（实战课·应用架构、架构案例分析书）：八大病灶逐段核对，其中病灶三（演进静态化）、四（术语无释）、五（开场没代入）、七（代码细节前置）、八（案例隔离）为必查项，不得抽样
   - 规范见 `references/architecture-narrative.md`；写作前质感对齐见 `examples/architecture-style-anchor.md`

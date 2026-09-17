@@ -1,4 +1,4 @@
-# 制图集成规范（course-skill × archsvg）
+# 制图集成规范（course-skill × v2svg）
 
 > 本文件定义 course-skill 生成矢量图（架构图 / 流程图 / 序列图）的统一入口。
 > 凡涉及制图，一律先读本文件，再动手；禁止让模型直接手写 SVG 坐标或主观评判配色。
@@ -7,21 +7,21 @@
 
 ## 0. 概述与定位
 
-- **archsvg 是独立 skill，course-skill 是它的消费者之一**。course-skill 只调用 archsvg 的 CLI 接口，**archsvg 不得反向依赖 course-skill 的任何文件**（封装铁律）。
-- **唯一制图入口**：架构图 / 流程图 / 序列图全部走 `archsvg` —— 先写 IR JSON → `archsvg validate` 校验 → `archsvg render` 出图。模型**禁止手写 SVG 文件、手写坐标、主观选择配色**。
-- **边界（关键）**：archsvg 只管**矢量图**（architecture / flow / sequence）。截图、位图、PPT 用图、外部企业架构图仍走 `quality-guide.md §3.3` 的普适图片规范，**不在此管线内**，详见 §7。
+- **v2svg 是独立 skill，course-skill 是它的消费者之一**。course-skill 只调用 v2svg 的 CLI 接口，**v2svg 不得反向依赖 course-skill 的任何文件**（封装铁律）。
+- **唯一制图入口**：架构图 / 流程图 / 序列图全部走 `v2svg` —— 先写 IR JSON → `svg validate` 校验 → `svg render` 出图。模型**禁止手写 SVG 文件、手写坐标、主观选择配色**。
+- **边界（关键）**：v2svg 只管**矢量图**（architecture / flow / sequence）。截图、位图、PPT 用图、外部企业架构图仍走 `quality-guide.md §3.3` 的普适图片规范，**不在此管线内**，详见 §7。
 
 ---
 
 ## 1. 调用约定（CLI）
 
-所有命令通过 `node <archsvg>/bin/archsvg.mjs` 执行（`archsvg` 根目录的探测见 §3，禁止硬编码绝对路径）。
+所有命令通过 `node <v2svg>/bin/svg.mjs` 执行（`v2svg` 根目录的探测见 §3，禁止硬编码绝对路径）。
 
 ```bash
-node <archsvg>/bin/archsvg.mjs doctor
-node <archsvg>/bin/archsvg.mjs guide "<场景>"
-node <archsvg>/bin/archsvg.mjs validate <type> <input.json> [--quality standard|showcase] [--variant-pair <dir>] [--json]
-node <archsvg>/bin/archsvg.mjs render   <type> <input.json> <output.svg> [--quality standard|showcase] [--variant-pair <dir>] [--json]
+node <v2svg>/bin/svg.mjs doctor
+node <v2svg>/bin/svg.mjs guide "<场景>"
+node <v2svg>/bin/svg.mjs validate <type> <input.json> [--quality standard|showcase] [--variant-pair <dir>] [--json]
+node <v2svg>/bin/svg.mjs render   <type> <input.json> <output.svg> [--quality standard|showcase] [--variant-pair <dir>] [--json]
 ```
 
 - `<type>` ∈ `architecture` / `flow` / `sequence`
@@ -46,7 +46,7 @@ node <archsvg>/bin/archsvg.mjs render   <type> <input.json> <output.svg> [--qual
 - **flow**：`stages?`（演进路线档位）+ `nodes[]`（kind: start/step/decision/terminal）+ `edges?`
 - **sequence**：`participants[]` + `messages[]`（kind: sync/async/return/self）
 
-具体字段以 archsvg 自带 `schemas/*.schema.json` 与 `.agents/skills/archsvg/references/diagram-spec.md` 为准（course-skill 不重述色值/坐标）。
+具体字段以 v2svg 自带 `schemas/*.schema.json` 与 `.agents/skills/v2svg/references/diagram-spec.md` 为准（course-skill 不重述色值/坐标）。
 
 ### `--json` 回执形状
 
@@ -85,16 +85,16 @@ node <archsvg>/bin/archsvg.mjs render   <type> <input.json> <output.svg> [--qual
 
 ## 3. 路径探测（禁止硬编码）
 
-course-skill **不得写死** archsvg 的绝对路径。运行时按已知位置顺序探测 archsvg 的 `SKILL.md`，找到后用其所在目录推算 `bin/archsvg.mjs`：
+course-skill **不得写死** v2svg 的绝对路径。运行时按已知位置顺序探测 v2svg 的 `SKILL.md`，找到后用其所在目录推算 `bin/svg.mjs`：
 
-1. `./.agents/skills/archsvg/SKILL.md`（当前项目下的 submodule 安装位）
-2. `<repo>/.agents/skills/archsvg/SKILL.md`（仓库根的 .agents）
-3. `~/.workbuddy/skills/archsvg/SKILL.md`（全局 WorkBuddy 技能位）
-4. `~/.codebuddy/skills/archsvg/SKILL.md` 等常见全局技能目录
+1. `./.agents/skills/v2svg/SKILL.md`（当前项目下的 submodule 安装位）
+2. `<repo>/.agents/skills/v2svg/SKILL.md`（仓库根的 .agents）
+3. `~/.workbuddy/skills/v2svg/SKILL.md`（全局 WorkBuddy 技能位）
+4. `~/.codebuddy/skills/v2svg/SKILL.md` 等常见全局技能目录
 
-探测到第一个存在即停止，取其目录拼出 `bin/archsvg.mjs`。若全部未命中，按 §5 降级，**禁止静默回退到手写 SVG**。
+探测到第一个存在即停止，取其目录拼出 `bin/svg.mjs`。若全部未命中，按 §5 降级，**禁止静默回退到手写 SVG**。
 
-> 推荐做法：在调用前用一个探测命令（如向上查找 `archsvg/SKILL.md`）拿到根目录，赋给变量 `<archsvg>`，后续命令统一用 `node "$ARCHSVG/bin/archsvg.mjs"`。
+> 推荐做法：在调用前用一个探测命令（如向上查找 `v2svg/SKILL.md`）拿到根目录，赋给变量 `<v2svg>`，后续命令统一用 `node "$ARCHSVG/bin/svg.mjs"`。
 
 ---
 
@@ -102,7 +102,7 @@ course-skill **不得写死** archsvg 的绝对路径。运行时按已知位置
 
 不要主观评判"图好不好看"。进入 Phase 5 审查前，所有矢量图必须：
 
-1. 已通过 `archsvg render --quality showcase --json`，回执 `ok: true`；
+1. 已通过 `svg render --quality showcase --json`，回执 `ok: true`；
 2. 读取 `composition.summary`：`passed === total`（showcase 档须 **15/15**）方算通过；
 3. 逐条核对 `checks[]` 中的 6 项文档集成专项是否全过：`no_ascii` / `no_base64` / `ref_reachable` / `caption_present` / `theme_readable` / `variant_parity`；
 4. 9 项构图检查（finite_svg / node_overlap / relationship_crossings / label_route_clearance / orthogonal_arrows / relationship_corridors / container_border_runs / route_rhythm / legend_clearance）须全部 `ok`。
@@ -113,23 +113,23 @@ course-skill **不得写死** archsvg 的绝对路径。运行时按已知位置
 
 ## 5. 降级策略（关键，禁止静默）
 
-当 §3 探测不到 archsvg（未安装 / 环境缺失）时：
+当 §3 探测不到 v2svg（未安装 / 环境缺失）时：
 
-- **必须明确告知用户**：当前环境无 archsvg 自动化验证，制图质量门禁从"机械校验"降级为"主观审查"，不再有 15/15 回执保证。
+- **必须明确告知用户**：当前环境无 v2svg 自动化验证，制图质量门禁从"机械校验"降级为"主观审查"，不再有 15/15 回执保证。
 - **回落方式**：仅当确需出图时，由人工手写 SVG 并**严格遵守 `quality-guide.md §3.3` 普适图片规范**（禁 base64 内嵌、禁 ASCII 图、独立文件存 `images/`、相对路径引用、数据表优先 Markdown）。这只在已向用户声明降级后才允许。
-- **禁止静默回退**：不得假装已验证通过，不得在报告里写"15/15"。在 `phase-4 sync-record` / `phase-5` 评估报告中如实记录"archsvg 缺失，已降级为主观审查"。
+- **禁止静默回退**：不得假装已验证通过，不得在报告里写"15/15"。在 `phase-4 sync-record` / `phase-5` 评估报告中如实记录"v2svg 缺失，已降级为主观审查"。
 
 ---
 
 ## 6. 课程特有要求
 
-| 课型 | 对图的特有特殊要求 | archsvg 落地 |
+| 课型 | 对图的特有特殊要求 | v2svg 落地 |
 |:---|:---|:---|
 | **实战课（含演进路线）** | 演进路线图：总图（S0→S4 横向卡片、本课档位高亮）+ 每档 ≥1 张拓扑图；起点档描述须与主 Demo 代码一致 | 类型 `flow` + `stages`（档位即 stage）；course 检查 `caption_present` + 图数量；起点对齐由人工/技术布道师核对代码 |
-| **实战课·应用架构** | 图中类名/包名须与真实代码 100% 一致；指标对比、评测结果等结构化数据用 **Markdown 表格**，不配图 | `architecture` 类型；代码一致性 archsvg **不校验**，须由技术布道师审 G2–G7；对比表走 Markdown |
-| **双轨（TS/Java）** | `images/` 图数量与语义对齐，两轨语义对应、布局可由 archsvg 不同但含义一致 | `variant_parity` 检查（图数量）；两轨各自渲染、成对产出，不漏轨；**语义对齐** archsvg 不校验，须人工/技术布道师核 |
-| **录播课** | 文档内架构/流程/序列图走本管线；**PPT 用图**可接受位图（见 §3.3），不强制 archsvg | 文档矢量图 → architecture/flow/sequence；PPT 用图见 §3.3 |
-| **架构案例分析书** | 图遵循底线规范（禁 ASCII、走 archsvg），无额外专项；封面/架构图用 archsvg | architecture/flow 由 archsvg 渲染；无 variant_parity 要求 |
+| **实战课·应用架构** | 图中类名/包名须与真实代码 100% 一致；指标对比、评测结果等结构化数据用 **Markdown 表格**，不配图 | `architecture` 类型；代码一致性 v2svg **不校验**，须由技术布道师审 G2–G7；对比表走 Markdown |
+| **双轨（TS/Java）** | `images/` 图数量与语义对齐，两轨语义对应、布局可由 v2svg 不同但含义一致 | `variant_parity` 检查（图数量）；两轨各自渲染、成对产出，不漏轨；**语义对齐** v2svg 不校验，须人工/技术布道师核 |
+| **录播课** | 文档内架构/流程/序列图走本管线；**PPT 用图**可接受位图（见 §3.3），不强制 v2svg | 文档矢量图 → architecture/flow/sequence；PPT 用图见 §3.3 |
+| **架构案例分析书** | 图遵循底线规范（禁 ASCII、走 v2svg），无额外专项；封面/架构图用 v2svg | architecture/flow 由 v2svg 渲染；无 variant_parity 要求 |
 
 > 共性底线（所有课型）：禁 ASCII、禁 base64/内嵌、独立文件存 `images/`、相对路径引用、数据表优先 Markdown、截图/位图单列（§3.3 保留）。
 
@@ -137,9 +137,9 @@ course-skill **不得写死** archsvg 的绝对路径。运行时按已知位置
 
 ## 7. 与 quality-guide §3.3 的边界（重申）
 
-archsvg 与 §3.3 是**互补**而非替代关系：
+v2svg 与 §3.3 是**互补**而非替代关系：
 
-**archsvg 负责**（矢量图生成 + 机械校验）：
+**v2svg 负责**（矢量图生成 + 机械校验）：
 - 架构图 / 流程图 / 序列图的自动布局、三域 role 配色、暗色自适应、零 JS 静态 SVG 产出
 - 15 项检查（9 构图 + 6 课程专项）的自动验证
 - 单图 < 35 KB 的产物约束
@@ -149,6 +149,6 @@ archsvg 与 §3.3 是**互补**而非替代关系：
 - 引用路径相对，如 `![RAG 四步链路](./images/rag-4-steps.svg)`
 - 数据表格优先用 Markdown 表格，不要截图
 - 绝对禁止 ASCII 图
-- 位图/图表、PPT 用图、外部企业架构图（含 attribution）仍按 §3.3 处理，不走 archsvg
+- 位图/图表、PPT 用图、外部企业架构图（含 attribution）仍按 §3.3 处理，不走 v2svg
 
-> 一句话：矢量图交给 archsvg，其余图片按 §3.3。两套规则都对"禁 ASCII / 禁内嵌 / 独立文件 / 相对路径"达成一致，不冲突。
+> 一句话：矢量图交给 v2svg，其余图片按 §3.3。两套规则都对"禁 ASCII / 禁内嵌 / 独立文件 / 相对路径"达成一致，不冲突。
