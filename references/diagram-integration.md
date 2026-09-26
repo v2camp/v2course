@@ -46,7 +46,7 @@ node <v2svg>/bin/svg.mjs render   <type> <input.json> <output.svg> [--quality st
 - **flow**：`stages?`（演进路线档位）+ `nodes[]`（kind: start/step/decision/terminal）+ `edges?`
 - **sequence**：`participants[]` + `messages[]`（kind: sync/async/return/self）
 
-具体字段以 v2svg 自带 `schemas/*.schema.json` 与 `.agents/skills/v2svg/references/diagram-spec.md` 为准（course-skill 不重述色值/坐标）。
+具体字段以 v2svg 自带 schema 文件与该技能的 **diagram-spec** 说明文档为准（二者均在 v2svg 仓，不在本 skill 内；course-skill 不重述色值/坐标）。
 
 ### `--json` 回执形状
 

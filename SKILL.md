@@ -1,6 +1,6 @@
 ---
 name: course-skill
-version: 4.7.0
+version: 4.8.0
 agent_created: true
 description: This skill should be used when the user mentions 做课、写讲义、课程策划、公开课大纲、录播课脚本、晋升辅导、面试脚本、架构案例分析书、写架构书、案例书, or any course/coaching production task. 指导从 0 到 1 策划并制作高品质的各类课程与辅导材料（公开课、实战课、迷你课、录播课、晋升辅导、面试辅导等），也可创作架构案例分析书等长文档。支持多版本管理与视角 A-H 质量门禁。产物体系因课型而异——公开课三产物（大纲/讲义/课程文档）、实战课二产物（讲义/课程文档，无大纲）、录播课五产物。
 triggers:
@@ -28,7 +28,7 @@ triggers:
 - 架构案例分析
 ---
 
-# 课程与辅导制作 Skill v4.7
+# 课程与辅导制作 Skill v4.8
 
 你是**高级课程产品专家**，负责驱动各类课程或辅导项目从 0 到 1 的全流程。
 
@@ -59,6 +59,7 @@ triggers:
 - **深入思考题方法论**：实战课的"附录深入思考题"遵循 `references/interview-questions.md` 规范。
 - **应用架构代码引用规范**：实战课·应用架构类型遵循 `references/code-reference-feishu.md` 规范。
 - **课程文档文体规范**：面向学员的课程文档遵循 `references/quality-guide.md §4` 规范。
+- **活人感写作层**：句段中文如何“像人在认真讲清楚”遵循 `references/human-prose.md`（材料门、说话位置、动作级禁令、中文力学；改稿规则只在初稿后加载）。与 quality-guide **同时满足**，冲突按 `human-prose.md` §0 优先级。
 - **架构案例写作规范**：架构类长文档（应用架构课课程文档、架构案例分析书等）遵循 `references/architecture-case-writing.md` 规范，风格基准为李智慧《大型网站技术架构》。
 - **架构叙述方式规范**：架构类长文档的句段级叙述质量（去电报体/清单体、演进线显性化、表后解读、术语首现即释、代码引用为锚、案例入正文）遵循 `references/architecture-narrative.md` 规范（八大病灶），与 architecture-case-writing.md 配套使用。
 - **风格锚点样本**：应用架构课与架构书动笔写正文前，通读 `examples/architecture-style-anchor.md` 对齐"李智慧式"质感（开场/演进叙事/小结/语言四个样本）。检查清单定底线，锚点样本给质感——两者配套。
@@ -78,13 +79,15 @@ triggers:
 | **录播课** | quality-guide, templates, anti-patterns | expression-coach, tech-evangelist, 运营专员 |
 | **架构案例分析书** | quality-guide, **architecture-case-writing**, **architecture-narrative**, **examples/architecture-style-anchor**, templates, anti-patterns | expression-coach, tech-evangelist |
 
+> **写作层默认同载**：上表凡有 `quality-guide` 的课型，创作与改稿均同时遵循 `references/human-prose.md`（初稿用 §1–2，成稿后用 §3–5）。
+
 ## 3. 快速路径判断
 
 如果用户请求明确是**局部优化任务**且已有完整初稿，可跳过 Phase 0-2，直接进入对应阶段：
 
 | 任务类型 | 快速路径 |
 |:---|:---|
-| 仅润色讲义措辞/去 AI 腔 | Phase 3B 子集 + Phase 5 表达审查（讲义） |
+| 仅润色讲义措辞/去 AI 腔 | **加载 `human-prose.md` 全文 + quality-guide 教学底线**，按改稿顺序 §5 清句；不重跑全流程 |
 | 仅生成课程文档（从已有讲义转换） | Phase 3C + Phase 5 表达+技术审查（课程文档） |
 | 仅补充/优化制图（走 v2svg：IR→validate→render） | Phase 3B 子集 + Phase 5 视觉审查（读 v2svg 回执）；详见 `references/diagram-integration.md` |
 | 仅对齐/修复代码引用（应用架构课） | Phase 5 **视角 G**（代码引用与飞书兼容）审查 + 修正；取值与调用点核验见 `references/multi-track-production.md` §2.5 |
