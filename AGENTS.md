@@ -2,11 +2,11 @@
 
 本文件为 AI 编码工具（如 Codex、Trae、Cursor）提供操作指引，并承载本技能的版本状态、启用前自检协议与维护约束。
 
-## 当前版本：v4.8.0
+## 当前版本：v4.8.1
 
 | 字段 | 值 |
 |:---|:---|
-| version | 4.8.0（以 `SKILL.md` frontmatter 为准） |
+| version | 4.8.1（以 `SKILL.md` frontmatter 为准） |
 | revision | 529a052 |
 | 最近变更 | 见 `CHANGELOG.md` 最新条目 |
 
@@ -30,6 +30,8 @@
 4. 本文件「当前版本」段同步更新版本号与变更指引；`revision` 由 `.githooks/post-commit` 在升级提交后自动回填，无需人工操作。
 
 升级完成后核对：**四处**版本号一致（`grep -n 'Skill v4' SKILL.md` 应命中正文标题且与 frontmatter 主次版本相同）、`revision` 已自动回填、CHANGELOG 与 SKILL.md 变更一一对应。
+
+> **与父级口径的对应**：父级 `.agents/skills/AGENTS.md` 与本仓根 `AGENTS.md` 把升级写作「三处同步」（`SKILL.md` version 递增 ＋ `CHANGELOG` 新条目 ＋ `AGENTS` revision 回填）。本文件的「四处」只是把其中第一项「`SKILL.md` version 递增」显式拆为 **frontmatter `version`** 与 **正文 H1 `Skill vX.Y`** 两点——因 4.6.0 曾漏改 H1 并于 4.6.1 补，故在此单独计数。**内容一致，计数口径不同，非冲突。**
 
 ### 钩子安装（新机器 / 新克隆执行一次）
 
@@ -62,4 +64,4 @@ course-skill/
 
 ## 升级与发布
 
-本技能为独立 git submodule，远程 `git@github.com:hl85/course-skill.git`。改动在子仓库内单独提交并推送；主仓库仅更新指针（见主仓库 AGENTS.md「任务生命周期」）。
+本技能为独立 git submodule，远程 `git@github.com:v2camp/course-skill.git`。改动在子仓库内单独提交并推送；主仓库仅更新指针（见主仓库 AGENTS.md「任务生命周期」）。

@@ -1,6 +1,21 @@
 # 更新日志
 
-## 4.8.0 - 2026-09-30
+## 4.8.1 - 2026-09-26
+
+### 修正：审视后清掉的口径漂移与一致性缺陷（P0/P2）
+
+一次全量审视（流程/风格/结构/课型四维）后修掉四类问题：
+
+- **视角编号错置（P0，4.6.1 漏改）**：`subagents/tech-evangelist.md`（专项条目 20 处 ＋ 报告模板表）与 `references/templates.md §7.3` 把「代码引用准确性专项」仍写作 **F1-F10**。F 是附录思考题专项，代码引用是**视角 G（G1-G10）**。4.6.1 只修了 `SKILL.md §3` 与 `boundary.md`，子代理与报告模板漏网。现全部改为 G1-G10。
+- **附录思考题篇幅阈值自相矛盾（P0）**：`references/interview-questions.md §7` 反模式表写「超过讲义 20%」，与同文件 §6.2、phase-5 视角 F9、anti-patterns、SKILL.md §7、expression-coach 的 **15%** 冲突。20% 为旧值，已统一为 15%。
+- **配色口径三处重复（P2）**：`evolution-roadmap.md §2`（表内「配色」列 ＋ "与 quality-guide 一致"过期指针）、`domain-adaptation.md §7` 各自复述 role 色值。现统一收敛到 `diagram-integration.md §1` 单一权威，其余两处只留指针。
+- **文档与元数据漂移（P2）**：`README.md` 目录树补 4.8.0 新增的 `human-prose.md` 与 `subagents/运营专员.md`；`core-principles.md §3` 的 L1-L4 指针由「SKILL.md §6」（实为文件命名规范）改指 phase-0/phase-4；`quality-guide.md §1.1` 词表补注「替换词是方向示例不是口头禅」并撤下「说白了」（与 human-prose §3.1 冲突）；`AGENTS.md` 远程地址由 `hl85/course-skill.git` 更正为 `v2camp/course-skill.git`；并澄清「四处同步」与父级「三处同步」的对应关系。
+
+### 变更
+
+- **`SKILL.md`**：版本 4.8.0 → 4.8.1。
+
+## 4.8.0 - 2026-09-26
 
 ### 新增：活人感写作层 `references/human-prose.md`（吸收 human-writing，课程裁剪）
 

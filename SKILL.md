@@ -1,6 +1,6 @@
 ---
 name: course-skill
-version: 4.8.0
+version: 4.8.1
 agent_created: true
 description: This skill should be used when the user mentions 做课、写讲义、课程策划、公开课大纲、录播课脚本、晋升辅导、面试脚本、架构案例分析书、写架构书、案例书, or any course/coaching production task. 指导从 0 到 1 策划并制作高品质的各类课程与辅导材料（公开课、实战课、迷你课、录播课、晋升辅导、面试辅导等），也可创作架构案例分析书等长文档。支持多版本管理与视角 A-H 质量门禁。产物体系因课型而异——公开课三产物（大纲/讲义/课程文档）、实战课二产物（讲义/课程文档，无大纲）、录播课五产物。
 triggers:

@@ -35,15 +35,15 @@
 
 ## 2. 三域抽象模型
 
-架构分析使用三域视角，配色方案与 quality-guide.md 一致：
+架构分析使用三域视角。**配色由 v2svg 统一，权威定义见 `diagram-integration.md` §1（role 枚举表）；本文件不复述色值或 role 清单。**
 
-| 域 | 含义 | 配色 | Agent 领域映射 | 数据工程映射 | 微服务映射 |
-|:---|:---|:---|:---|:---|:---|
-| **控制流域** | 编排、调度、状态机、流程控制 | 紫色系 | Context/Graph 编排 | DAG Scheduler | Orchestrator/Service Mesh |
-| **能力域** | 工具、算子、外部系统、业务能力单元 | 绿色系 | Tools/Function Calling | Operators/Connectors | Services/Adapters |
-| **交互域** | 协议、接口、数据契约、输入输出 | 蓝色系 | Protocol/LLM I/O | Data Schema/API | API Gateway/Event Contract |
+| 域 | 含义 | Agent 领域映射 | 数据工程映射 | 微服务映射 |
+|:---|:---|:---|:---|:---|
+| **控制流域** | 编排、调度、状态机、流程控制 | Context/Graph 编排 | DAG Scheduler | Orchestrator/Service Mesh |
+| **能力域** | 工具、算子、外部系统、业务能力单元 | Tools/Function Calling | Operators/Connectors | Services/Adapters |
+| **交互域** | 协议、接口、数据契约、输入输出 | Protocol/LLM I/O | Data Schema/API | API Gateway/Event Contract |
 
-具体领域可做领域化命名，但配色统一为紫/绿/蓝三色。
+具体领域可做领域化命名；三域到 v2svg role 的对应（控制流→`control`／能力→`capability`／交互→`interaction`）由 v2svg 定义。
 
 ---
 
@@ -190,7 +190,7 @@
 - S2 多源融合：展示多路工具 + Rerank
 - S3 多 Agent：展示 Orchestrator + 并行 Worker
 - S4 工程化：展示上下文工程 + 评估闭环
-- 配色采用 v2svg 三域 role 配色（控制流紫/能力绿/交互蓝），由 v2svg 统一。
+- 配色由 v2svg 统一（role 配色，见 `diagram-integration.md` §1）。
 
 ### 6.3 外部架构图引用
 

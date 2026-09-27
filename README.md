@@ -29,16 +29,18 @@
 │   ├── diagram-integration.md # 制图规范（v2svg 驱动）
 │   ├── domain-adaptation.md  # 领域适配指南（新领域使用）
 │   ├── evolution-roadmap.md  # 架构演进路线方法论（S0-S4 模型+工业案例规范）
+│   ├── human-prose.md        # 活人感写作层（材料门/说话位置/动作级禁令/中文力学/改稿顺序）
 │   ├── interview-questions.md # 附录深入思考题方法论（三质量维度+候选题路径+写作规范）
 │   ├── multi-track-production.md # 多版本生产规范（教学代码生产级门禁）
-│   ├── quality-guide.md      # 品质提升指南（去 AI 腔、三产物规范、三域配色）
+│   ├── quality-guide.md      # 品质提升指南（去 AI 腔、三产物规范、小节标题命名）
 │   └── templates.md          # 常用模板
 ├── examples/                 # 风格锚点样本（动笔前的质感对齐）
 │   └── architecture-style-anchor.md # 李智慧式写作样本（开场/演进叙事/小结/语言质感）
 └── subagents/                # 辅助子 Agent 设定
     ├── code-reviewer.md     # 代码审查专家（技术栈自适应）
     ├── expression-coach.md   # 表达教练（语调/张力/排版/制图(v2svg)/演进路线/思考题表达）
-    └── tech-evangelist.md   # 技术布道师（讲义技术准确性与代码一致性、关联阅读来源验证、应用架构课代码引用校验）
+    ├── tech-evangelist.md   # 技术布道师（讲义技术准确性与代码一致性、关联阅读来源验证、应用架构课代码引用校验）
+    └── 运营专员.md           # 运营专员（标题吸引力/痛点清晰度/转化钩子/物料可用性）
 ```
 
 ## 如何使用
