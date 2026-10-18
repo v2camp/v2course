@@ -217,5 +217,6 @@ packages/shared/             # 契约 / 主数据 / mock，basic 与 full 共用
 ### 5.3 starter 与演进快照
 
 - starter 以 git tag 交付：命名 `{课程版本}-{技术栈}-lesson{N}-starter`，学员 checkout 即得骨架并跟做，写完与仓库内 basic 完成态对照
+- **starter tag 打出后须实测两项才可交付**：① 空壳态静态校验 0 错误（同 `templates.md §3.2`「空壳须类型正确」）；② 空壳态主命令确实停在预期处并报「待实现」——证明空壳真拦住了未实现路径，而非被缺依赖／缺配置提前挡在门外
 - basic 完成态随课打常规演进 tag（§4.1）；**basic 定稿即冻结**，除缺陷修复不改动，full 继续演进
 - full 相对 basic 的每处增强，架构课讲义必须能说出"解决什么生产问题"（对照锚点见 `architecture-course.md §3.4`）

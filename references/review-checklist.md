@@ -42,7 +42,7 @@
 - 演进路线案例新鲜度 ≤1.5 年；起点档与主 Demo 一致
 - 附录深入思考题 F1-F10 全勾（若有）
 - 应用架构课：代码引用（G1-G10）+ 生产级门禁（H1-H8）+ **代码对照与接线核验**（`multi-track-production.md` §2.5）全勾
-- 入门实战课（实战课·基础/实战）：入门规格专项全勾——① 含成品预览（跑起来的效果 + 一条命令）② 预置/现场写分界清晰（starter 预置脚手架+完整类型契约+mock 数据，现场只写 3-4 个关键决策文件，每个配"为什么这么写"）③ basic DoD 红线达标（`multi-track-production.md` §5.2 五条）④ 代码索引只列 basic 内文件、不列全工程 ⑤ 课后行动清单含「checkout starter tag 重做一遍 basic」
+- 入门实战课（实战课·基础/实战）：入门规格专项全勾——① 含成品预览（跑起来的效果 + 一条命令）② 预置/现场写分界清晰（starter 预置脚手架+完整类型契约+mock 数据，现场只写 3-4 个关键决策文件，每个配"为什么这么写"；**每步「跑一下」在该步文件状态下可执行**，见 `templates.md §3.2`）③ basic DoD 红线达标（`multi-track-production.md` §5.2 五条）④ 代码索引只列 basic 内文件、不列全工程 ⑤ 课后行动清单含「checkout starter tag 重做一遍 basic」，且 **starter tag 空壳态实测通过**（静态校验 0 错误 + 主命令停在预期处报「待实现」，见 `multi-track-production.md` §5.3）
 - 混编组架构课：basic→full 对照锚点审查全勾（`architecture-course.md` §3.4 三件套 + 开场从 basic 痛点切入）
 
 ## 课程文档专项重点
