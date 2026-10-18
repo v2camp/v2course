@@ -2,13 +2,13 @@
 
 本文件为 AI 编码工具（如 Codex、Trae、Cursor）提供操作指引，并承载本技能的版本状态、启用前自检协议与维护约束。
 
-## 当前版本：v4.13.0
+## 当前版本：v4.14.0
 
 | 字段 | 值 |
 |:---|:---|
-| version | 4.12.0（以 `SKILL.md` frontmatter 为准） |
+| version | 4.14.0（以 `SKILL.md` frontmatter 为准） |
 | revision | d3a7471 |
-| 最近变更 | 见 `CHANGELOG.md` 最新条目 |
+| 最近变更 | 入门实战三段式规格（组件学习／代码讲解／实战任务卡）、三类保底图、过渡契约；详见 `CHANGELOG.md` 4.14.0 |
 
 ## 启用前自检协议
 

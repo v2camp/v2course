@@ -213,6 +213,8 @@ packages/shared/             # 契约 / 主数据 / mock，basic 与 full 共用
 - [ ] 配 **3-5 条 smoke case** 手动可验（完整评测集与 CI 卡口属 full，留给架构课）
 - [ ] starter 骨架含**完整类型契约 + mock 数据 + smoke 样例**；关键决策文件为带引导注释的空壳（学员跟做时现场补全）
 - [ ] 课后行动清单给出「checkout starter tag 重做一遍 basic」的完整步骤
+- [ ] 配 **2 张左右课后实战任务卡**（八要素见 `hands-on-lesson.md §4.2.2`），选题过「演进锚点／独立可跑／vibe 值」三问（§4.2.1）；提示词不依赖课堂上下文，验证方式如实填写
+- [ ] 本课**三类保底图**（组件图 / 模式图 / 骨架图）齐备，IR 与 SVG 同目录同基名入库，无孤儿图（`diagram-integration.md §6.1`）
 
 ### 5.3 starter 与演进快照
 
