@@ -7,7 +7,7 @@
 | 字段 | 值 |
 |:---|:---|
 | version | 4.12.0（以 `SKILL.md` frontmatter 为准） |
-| revision | 7d91398 |
+| revision | 7c89920 |
 | 最近变更 | 见 `CHANGELOG.md` 最新条目 |
 
 ## 启用前自检协议
