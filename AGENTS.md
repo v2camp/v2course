@@ -7,7 +7,7 @@
 | 字段 | 值 |
 |:---|:---|
 | version | 4.15.0（以 `SKILL.md` frontmatter 为准） |
-| revision | 5392444 |
+| revision | b84693c |
 | 最近变更 | 放宽 Java 轨 basic DoD 行数红线（行数降为观察指标，文件数 ≤8 与现场写 ≤4 作硬门禁，行数按轨 TS ≤500／Java ≤1400）；详见 `CHANGELOG.md` 4.15.0 |
 
 ## 启用前自检协议
