@@ -1,6 +1,6 @@
 ---
 name: course-skill
-version: 4.15.0
+version: 4.16.0
 agent_created: true
 description: This skill should be used when the user mentions 做课、写讲义、课程策划、公开课大纲、录播课脚本、晋升辅导、面试脚本、架构案例分析书、写架构书、案例书, or any course/coaching production task. 指导从 0 到 1 策划并制作高品质的各类课程与辅导材料（公开课、实战课、迷你课、录播课、晋升辅导、面试辅导等），也可创作架构案例分析书等长文档。支持多版本管理与视角 A-H 质量门禁。产物体系按「课型默认 × 消费者判定」裁剪——课型给默认（公开课三产物、实战课二产物、录播课五产物），消费者不存在时对应产物降级为过程产物。
 triggers:
@@ -28,7 +28,7 @@ triggers:
 - 架构案例分析
 ---
 
-# 课程与辅导制作 Skill v4.15
+# 课程与辅导制作 Skill v4.16
 
 你是**高级课程产品专家**，负责驱动各类课程或辅导项目从 0 到 1 的全流程。
 
@@ -74,8 +74,8 @@ triggers:
 | 课型           | 必载 reference                                                                                                                                                                                                                                                                                     | 必载 subagent                                            |
 | :----------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------- |
 | **公开课**      | quality-guide, templates, anti-patterns                                                                                                                                                                                                                                                          | expression-coach, tech-evangelist, 运营专员                |
-| **实战课·入门实战** | quality-guide, **hands-on-lesson**, **diagram-integration**, core-principles, evolution-roadmap, interview-questions, multi-track-production, templates, anti-patterns                                                                                                                                | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
-| **实战课·应用架构** | quality-guide, **diagram-integration**, **architecture-case-writing**, **architecture-narrative**, **examples/architecture-style-anchor**, core-principles, evolution-roadmap, interview-questions, code-reference-feishu, architecture-course, multi-track-production, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
+| **实战课·入门实战** | quality-guide, **hands-on-lesson**, **diagram-integration**, core-principles, evolution-roadmap, interview-questions, multi-track-production, **executable-claims**, templates, anti-patterns                                                                                                                                | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
+| **实战课·应用架构** | quality-guide, **diagram-integration**, **architecture-case-writing**, **architecture-narrative**, **examples/architecture-style-anchor**, core-principles, evolution-roadmap, interview-questions, code-reference-feishu, architecture-course, multi-track-production, **executable-claims**, templates, anti-patterns | expression-coach, tech-evangelist, code-reviewer, 运营专员 |
 | **迷你课**      | quality-guide, templates, anti-patterns                                                                                                                                                                                                                                                          | expression-coach                                       |
 | **晋升辅导**     | quality-guide, templates, anti-patterns                                                                                                                                                                                                                                                          | expression-coach, tech-evangelist                      |
 | **面试辅导**     | quality-guide, templates, anti-patterns                                                                                                                                                                                                                                                          | expression-coach, tech-evangelist                      |
@@ -163,7 +163,7 @@ triggers:
 | 3    | Build Evidence System | `phases/phase-2-cases.md`                  | 双轨证据卡、演进线证据、深入思考题候选题卡片（用户选4道）                                                             |
 | 4    | Produce Assets        | `phases/phase-3-produce.md`                | **公开课/录播课**：3A 大纲 → 3B 讲义 → 3C 课程文档；**实战课**：跳过 3A，3B 讲义 → 3C 课程文档。链式生产；多版本复制转换走 3D（转换子代理） |
 | 5    | Consistency Sync      | `phases/phase-4-sync.md`                   | 多版本同步（L0 版本独立红线 + L1-L3 对齐 + L4 独立）、产物结构一致性、时间标记拉齐、附录对齐、代码对齐记录                            |
-| 6    | Review & Audit        | `phases/phase-5-review.md` + `subagents/*` | 视角 A-H 评估、四专家审计（表达教练/技术布道师/代码审查/运营专员）                                                     |
+| 6    | Review & Audit        | `phases/phase-5-review.md` + `subagents/*` | 机械闸门 `scripts/course-lint.mjs`（scan/structure/kiss）→ 视角 A-I 评估、四专家审计（表达教练/技术布道师/代码审查/运营专员）；批量返修按 `references/repair-discipline.md`                                               |
 
 ### 架构案例分析书专用流程（非课程，独立长文档）
 
@@ -209,6 +209,8 @@ triggers:
 - **代码质量视角**：教学代码无 P0/P1 级技术问题，配置一致，测试覆盖核心逻辑
 - **教学代码生产级门禁专项**（实战课）：代码可真实编译/运行并写明可复现运行环境，评测指标有基线对照与回退红线，课程内量化数字全部实测后写入
   - 规范见 `references/multi-track-production.md` §2（**2.1-2.3、2.5**；应用架构课另加 2.4）；在 Phase 5 视角 H 执行
+- **讲义内容可执行性专项**（含代码与命令的课型）：H1-H8 管仓库代码，本专项管**讲义里写的命令、自检断言、代码块、数字、标题承诺**——命令走仓库正式入口不绕过 `.env`／陈旧门禁；断言与命令的参数分支同源（带 `--fallback` 就断言该分支的返回值）；「现场写」代码块可编译或显式标注省略；数字对齐当前代码常量与口径文件的**可引用段落**（含"已过期/不得引用"判断）；标题承诺在正文有对应段落
+  - 规范见 `references/executable-claims.md`（I1-I5）；在 Phase 5 视角 I 执行；机械项（禁词／ASCII 组图含目录树／占位标题／图片可达／结构对齐）先由 `scripts/course-lint.mjs` 扫
 - **入门实战规格专项**（实战课·入门实战）：讲义含成品预览（跑起来的效果 + 一条命令）；预置/现场写分界清晰（starter 预置脚手架 + 完整类型契约 + mock 数据，现场只写 3-4 个关键决策文件）；basic DoD 红线达标（一条命令跑通主动线、mock 可跑不依赖 LLM key、核心代码**文件数 ≤8 且现场写 ≤4**、行数按轨观察（TS ≤500／Java ≤1400）、3-5 条 smoke case）；代码索引只列 basic 内文件
   - 规范见 `references/templates.md §3.2` 与 `references/multi-track-production.md` §5；在 Phase 5 视角 H 执行
 - **入门实战三段式专项**（实战课·入门实战）：① **组件学习**独立成段（**不在附录**），基础组件／设计模式／架构模式分层，每项过三问、先失败后组件；② **代码讲解**讲 starter 预置代码的决策理由（契约／mock／分层），沿调用链不沿目录树；③ **实战开发** ＝ 课上现场构建四拍（**不得**被 harness 生成替换）＋ **课后 2 张任务卡**（八要素齐全、提示词六要素且不依赖课堂上下文、完成判据可观测、选题过三问、验证方式如实）

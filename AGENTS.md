@@ -2,13 +2,13 @@
 
 本文件为 AI 编码工具（如 Codex、Trae、Cursor）提供操作指引，并承载本技能的版本状态、启用前自检协议与维护约束。
 
-## 当前版本：v4.15.0
+## 当前版本：v4.16.0
 
 | 字段 | 值 |
 |:---|:---|
-| version | 4.15.0（以 `SKILL.md` frontmatter 为准） |
+| version | 4.16.0（以 `SKILL.md` frontmatter 为准） |
 | revision | b84693c |
-| 最近变更 | 放宽 Java 轨 basic DoD 行数红线（行数降为观察指标，文件数 ≤8 与现场写 ≤4 作硬门禁，行数按轨 TS ≤500／Java ≤1400）；详见 `CHANGELOG.md` 4.15.0 |
+| 最近变更 | 新增讲义内容可执行性专项（I1-I5）+ 机械闸门 `scripts/course-lint.mjs`（scan/structure/kiss）+ 批量修复纪律 `repair-discipline.md`；ASCII 判据补目录树边界；审查前置增加"关键分析结构清单"；详见 `CHANGELOG.md` 4.16.0 |
 
 ## 启用前自检协议
 
