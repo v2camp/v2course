@@ -1,5 +1,13 @@
 # 更新日志
 
+## 4.17.1 - 2026-10-21
+
+### 精简：删除 lenses.md（与既有归属重复）
+
+4.17.0 新增的 `references/lenses.md` 经核查属重复建设：TAPS 已由 `phases/phase-1-spine.md` 的「必须明确的 6 个问题」覆盖、KISS 已由 `course-lint.mjs kiss` 覆盖、MECE 已由 `review-checklist.md` 的「结构靶子四问（互斥 / 穷尽 / 同层 / 不重复）」覆盖。删除该文件（references 少一个），只把真正新增的「三条禁令」并入 `review-checklist.md` 审查总原则，SKILL.md Phase 6 引用同步。
+
+教训：新增 reference 前先 `grep` 既有归属，避免给已有判据再写一份介绍。
+
 ## 4.17.0 - 2026-10-21
 
 ### 新增：审查透镜（TAPS/KISS/MECE）适用边界与护栏

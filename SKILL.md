@@ -1,6 +1,6 @@
 ---
 name: course-skill
-version: 4.17.0
+version: 4.17.1
 agent_created: true
 description: This skill should be used when the user mentions 做课、写讲义、课程策划、公开课大纲、录播课脚本、晋升辅导、面试脚本、架构案例分析书、写架构书、案例书, or any course/coaching production task. 指导从 0 到 1 策划并制作高品质的各类课程与辅导材料（公开课、实战课、迷你课、录播课、晋升辅导、面试辅导等），也可创作架构案例分析书等长文档。支持多版本管理与视角 A-H 质量门禁。产物体系按「课型默认 × 消费者判定」裁剪——课型给默认（公开课三产物、实战课二产物、录播课五产物），消费者不存在时对应产物降级为过程产物。
 triggers:
@@ -163,7 +163,7 @@ triggers:
 | 3    | Build Evidence System | `phases/phase-2-cases.md`                  | 双轨证据卡、演进线证据、深入思考题候选题卡片（用户选4道）                                                             |
 | 4    | Produce Assets        | `phases/phase-3-produce.md`                | **公开课/录播课**：3A 大纲 → 3B 讲义 → 3C 课程文档；**实战课**：跳过 3A，3B 讲义 → 3C 课程文档。链式生产；多版本复制转换走 3D（转换子代理） |
 | 5    | Consistency Sync      | `phases/phase-4-sync.md`                   | 多版本同步（L0 版本独立红线 + L1-L3 对齐 + L4 独立）、产物结构一致性、时间标记拉齐、附录对齐、代码对齐记录                            |
-| 6    | Review & Audit        | `phases/phase-5-review.md` + `subagents/*` | 机械闸门 `scripts/course-lint.mjs`（scan/structure/kiss）→ 视角 A-I 评估、四专家审计（表达教练/技术布道师/代码审查/运营专员）；批量返修按 `references/repair-discipline.md`；表达与结构透镜按 `references/lenses.md`（TAPS/KISS/MECE 按需加载，P0 判据先行） |
+| 6    | Review & Audit        | `phases/phase-5-review.md` + `subagents/*` | 机械闸门 `scripts/course-lint.mjs`（scan/structure/kiss）→ 视角 A-I 评估、四专家审计（表达教练/技术布道师/代码审查/运营专员）；批量返修按 `references/repair-discipline.md`；TAPS/KISS/MECE 的归属与三条禁令见 `references/review-checklist.md` 审查总原则 |
 
 ### 架构案例分析书专用流程（非课程，独立长文档）
 
