@@ -1,5 +1,21 @@
 # 更新日志
 
+## 4.18.0 - 2026-10-21
+
+### 精简：判据唯一出处收敛（重叠矩阵驱动的系统性去重）
+
+归属矩阵扫描发现 **12 个重叠点**（9 个逐字双份），证实的不是"多了一个 lenses.md"，而是"判据多安家"是系统性问题。本轮收敛 7 个 + 顺手 1 个：
+
+- **F/G/H 判据收敛**：`phase-5-review.md` 的视角 F/G/H 不再逐字复述判据（改指针）；`tech-evangelist` 的 G 十条全文删除；`interview-questions` / `code-reference-feishu` / `multi-track` 各加"唯一出处"声明；**编号与条文同家**：H1-H8 挂进 multi-track §2.1-2.4，F1-F10 挂进 interview-questions §2/§6.2。
+- **执行口径修齐**：G 由技术布道师一人负责十条（原先 phase-5 说拆两人、tech-evangelist 说一人，已统一为后者）；phase-5 的 F 判据指向从**不存在的** architecture-course §7 改为 interview-questions §2/§7。
+- **骨架收敛**：`phase-3-produce.md` 的公开课七大段 / 实战课八段全文删除（改指针）；`templates.md` 的 90 分钟节奏散文版删除（改指针，唯一定义在 hands-on-lesson §6）。
+- **expression-coach**：§8 思考题判据删（改指针）；加三条禁令（KISS 禁降工程复杂度 / MECE 不做事实裁决 / 产出是断言不是事实）；加 0 号"定位一致性"维度 + 自检行（讲义首段承诺 ↔ 正文一一兑现）。
+- **phase-5**：加 Step 0.5 定位核对（Phase 1 六问即 TAPS 的落地，审查阶段只做兑现核对）。
+- **顺手**：quality-guide 内部 ASCII 判据去重；core-principles §6 的"A-H 见 architecture-course"假注删除。
+
+### 重叠矩阵（登记下一轮）
+其余 5 个重叠点（human-prose 镜像 core-principles §7、演进约束双处、调研通道三处、视角 G 重叠、贯穿图执行双份）与 3 个疑似废弃（boundary.md 降级、core-principles §8 孤章、anti-patterns 索引化）——涉及 SKILL.md 结构调整，单独一轮做。
+
 ## 4.17.1 - 2026-10-21
 
 ### 精简：删除 lenses.md（与既有归属重复）
