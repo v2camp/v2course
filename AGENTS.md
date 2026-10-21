@@ -7,7 +7,7 @@
 | 字段 | 值 |
 |:---|:---|
 | version | 4.16.0（以 `SKILL.md` frontmatter 为准） |
-| revision | a5e4946 |
+| revision | b9fac1f |
 | 最近变更 | 新增讲义内容可执行性专项（I1-I5）+ 机械闸门 `scripts/course-lint.mjs`（scan/structure/kiss）+ 批量修复纪律 `repair-discipline.md`；ASCII 判据补目录树边界；审查前置增加"关键分析结构清单"；详见 `CHANGELOG.md` 4.16.0 |
 
 ## 启用前自检协议
