@@ -41,18 +41,16 @@
 
 #### 调研通道（强制）
 
-工业案例调研**优先通过 agent-reach skill 执行**：
-1. 先用 agent-reach 的 `web` 分类定向检索一线工程博客
-   （Anthropic / Netflix / Uber / Meta / ByteDance / Google / LinkedIn / Slack / meituan / alibaba / tencent  等 Engineering Blog）
-2. 再用 `dev` 分类检索 GitHub 开源项目的 RFC / Architecture Decision Record
-3. 必要时用 `search` 分类做补充检索（顶级会议分享、技术白皮书）
+agent-reach 的 `web` / `dev` / `search` 三分类用法与降级说明，**唯一定义**见 `references/evolution-roadmap.md` §3.4，此处不复述。本阶段只规定检索动作：
+
+1. 一线工程博客（Anthropic / Netflix / Uber / Meta / ByteDance / Google / LinkedIn / Slack / meituan / alibaba / tencent 等 Engineering Blog）
+2. GitHub 开源项目的 RFC / Architecture Decision Record
+3. 顶级会议分享、技术白皮书（补充）
 
 关键词策略：
 - 通用模板：`{领域} architecture evolution production case study`
 - 短板反推：基于本课起点档（S0）的实际失败模式，反推下一档关键词
   （例：若 S0 瓶颈是"串行执行慢" → 搜 `parallel {领域} production architecture`）
-
-> **降级说明**：若 agent-reach skill 未安装或不可用，可使用 WebSearch + WebFetch 组合替代，但必须遵循相同的信源优先级和新鲜度约束。
 
 #### 采集硬约束
 
@@ -98,12 +96,12 @@
 2. 列出上一档/两档的核心架构决策点（控制流/能力/交互三域各找 1-2 个）
 3. 每个决策点构造场景化题干（三句话：场景锚定 → 升级需求 → 问题抛出）
 4. 设计 2 层追问（追问1 缩小到子决策，追问2 推向更极端场景）
-5. 用 agent-reach Exa 验证推演方向：搜 `{技术关键词} + "architecture evolution" / "scaling" / "production"`，找到至少 1 篇工业界讨论同问题的文章作为来源
+5. 用 agent-reach 网页检索验证推演方向：搜 `{技术关键词} + "architecture evolution" / "scaling" / "production"`，找到至少 1 篇工业界讨论同问题的文章作为来源
 
 #### 辅路径 A：架构演进文章 → 反向提炼（深度题来源）
 
 执行步骤：
-1. 用 agent-reach Exa 搜本课核心技术 + "lessons learned" / "production journey" / "踩坑" / "从 0 到 1"
+1. 用 agent-reach 网页检索搜本课核心技术 + "lessons learned" / "production journey" / "踩坑" / "从 0 到 1"
 2. 信源优先级：一线公司技术博客 > Staff+ 工程师博客 > InfoQ/极客时间深度 > 高赞公众号
 3. 新鲜度：≤ 2 年
 4. 找作者"纠结过、试过多方案、最终选 X 因为 Y"的决策时刻
@@ -112,12 +110,10 @@
 
 #### 调研通道（强制）
 
-候选题检索**优先通过 agent-reach skill 执行**：
-- 主要用 `search` 分类的 Exa 网页搜索（`exa.web_search_exa`）
-- 文章全文阅读用 `web` 分类的 Jina Reader（`curl https://r.jina.ai/URL`）
-- 禁止用通用 WebSearch 搜"XX 面试题"直接凑题（出来的都是八股）
+通道与降级说明见 `references/evolution-roadmap.md` §3.4，具体命令示例见 `references/interview-questions.md` §4.3。本阶段特有两条约束：
 
-> **降级说明**：若 agent-reach skill 未安装或不可用，可使用 WebSearch + WebFetch 组合替代，但必须遵循相同的信源优先级和新鲜度约束。
+- **搜题用网页搜索、读原文用全文阅读**（别把搜索结果的摘要当原文用）。
+- **禁止用通用 WebSearch 搜「XX 面试题」直接凑题**（出来的都是八股）。
 
 #### 候选题卡片格式
 

@@ -99,7 +99,7 @@
 
 #### 4. **视觉图形规范与 ASCII 封杀（v2svg 回执驱动）**
 制图规范见 `references/diagram-integration.md`（v2svg 调用约定）
-- **无 ASCII 残留**：文档中是否彻底清理了 ASCII 字符流程图？
+- **无 ASCII 残留**：是否彻底清理了 ASCII 图形？判据边界见 `references/quality-guide.md` §3.3——字符流程图、目录树、文件清单、调用链都算图。
 - **独立 SVG 引用**：所有的流程图、架构图是否都作为独立 `.svg` 文件保存并以 Markdown 相对路径引用，且由 v2svg 渲染？
 - **美学与配色**：读取 v2svg 回执——`theme_readable` 是否通过、明/暗对比度是否 ≥4.5:1、`composition` 是否全过；不主观评判配色。
 

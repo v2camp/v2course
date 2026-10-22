@@ -162,7 +162,7 @@
 
 #### 3. 制图规范（走 v2svg，严禁 ASCII 图形）
 详细规范见 `references/diagram-integration.md`（v2svg 调用约定）。
-- 讲义中绝对禁止残留任何 ASCII 字符流程图
+- 讲义中绝对禁止残留任何 ASCII 图形——判据边界见 `references/quality-guide.md` §3.3（字符流程图、目录树、文件清单、调用链都算图）
 - 先写 IR JSON，经 `svg validate` 校验后 `svg render` 出独立 `.svg` 文件存放至 `images/`；禁止手写 SVG 坐标
 - 配色与风格由 v2svg 统一（三域 role 配色），详见 `references/diagram-integration.md`
 
