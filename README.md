@@ -14,7 +14,7 @@
 ├── phases/                   # 6 大核心执行阶段
 │   ├── phase-0-explore.md    # 探索与挑战（确认时长、规范、定位、演进位置；应用架构课需先探索代码架构）
 │   ├── phase-1-spine.md      # 决定主心骨（主线结构、演进路线决策、附录思考题决策）
-│   ├── phase-2-cases.md      # 构建证据系统（双轨+演进线+候选题，agent-reach 调研规范）
+│   ├── phase-2-cases.md      # 构建证据系统（双轨+演进线+候选题，调研通道规范）
 │   ├── phase-3-produce.md    # 资产生产（初稿撰写，含演进路线段+附录思考题写作规范）
 │   ├── phase-4-sync.md       # 一致性对齐（L1-L4 分层同步）
 │   └── phase-5-review.md     # 审查与审计（视角 A-I + 四专家，含应用架构课专项审查）
@@ -53,7 +53,7 @@ Use Skill: course-skill 帮我为《XX公开课》写一份课程大纲
 ```
 
 ### Skill 依赖
-- **agent-reach**：Phase 2 工业案例调研与深入思考题候选题检索必须通过 agent-reach skill 执行联网研究。
+- **联网调研**：Phase 2 与候选题检索走零依赖通道（WebSearch 检索 + `r.jina.ai` 取正文），见 `references/evolution-roadmap.md` §3.4。
 - **architecture-case-writing**：创作架构案例分析书等长文档时，遵循该 reference 的写作规范（风格基准为李智慧《大型网站技术架构》）。
 - **architecture-narrative + architecture-style-anchor**：架构类长文档（应用架构课、架构书）的叙述质量配套——narrative 定八大病灶检查标准，anchor 给动笔前的质感参照样本。
 
@@ -63,3 +63,12 @@ Use Skill: course-skill 帮我为《XX公开课》写一份课程大纲
 ## 贡献与维护
 
 本 Skill 作为一个独立的 Git Submodule 维护。如需修改课程生产的底层逻辑、Prompt 或排版规范，请直接在此仓库中提交 PR。
+
+### 维护脚本
+
+| 脚本 | 用途 | 什么时候跑 |
+|:--|:--|:--|
+| `scripts/course-lint.mjs` | 产物红线闸门（scan / structure / kiss） | Phase 5 开审前 |
+| `scripts/ownership-scan.mjs` | **规范自身**的跨文件近似重复扫描（判据「多安家」检测） | 新增或大改 reference / phase / subagent 之后 |
+
+`ownership-scan` 的用法：`node scripts/ownership-scan.mjs [--min-sim 0.72] [--json]`，默认扫 `SKILL.md + references/ + phases/ + subagents/`。它只**发现**疑似重复，裁决仍靠人——`速查 + 指针` 是合理分工，报告模板的结构对称（各 subagent 填同样格式）也不是重复。命中区分为「跨文件（需裁决）/ 模板对称 / 同文件」三类，可据此快速筛掉噪声。

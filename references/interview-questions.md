@@ -85,7 +85,7 @@
 4. **设计追问链**：每道题 2 层追问，层层深入：
    - 追问 1：缩小到一个具体子决策（选型/参数/边界条件）
    - 追问 2：推向更极端的场景或反直觉的选择
-5. **工业验证**：用 agent-reach 网页检索验证推演方向：
+5. **工业验证**：用网页检索验证推演方向：
    - 搜索词模式：`{技术关键词} + "architecture evolution" / "scaling" / "production" / "lessons learned"`
    - 信源：一线公司技术博客、Staff+ 工程师个人博客
    - 找到至少 1 篇工业界在讨论同一问题的文章作为来源
@@ -100,7 +100,7 @@
 
 **执行步骤**：
 
-1. **定向检索**：用 agent-reach 网页检索搜索本课主题相关的架构文章：
+1. **定向检索**：用网页检索搜索本课主题相关的架构文章：
    - 搜索词模式：`{本课核心技术} + "production" / "lessons learned" / "from prototype" / "踩坑" / "演进"`
    - 限定域名（可选）：`includeDomains` 指定大厂技术博客域名
 2. **信源筛选**（按优先级）：
@@ -122,7 +122,7 @@
 
 ### 4.3 检索工具使用规范
 
-**优先通过 agent-reach skill 执行**。若 agent-reach skill 未安装或不可用，可使用 WebSearch + WebFetch 组合替代，但必须遵循相同的信源优先级和新鲜度约束。
+**通道见 `references/evolution-roadmap.md` §3.4**（零依赖优先）。下列命令是 Exa 与 Jina Reader 的具体用法，不要求装 agent-reach。
 
 核心命令：
 ```bash

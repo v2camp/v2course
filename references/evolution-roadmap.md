@@ -68,14 +68,19 @@
 3. **企业技术白皮书 / 开源项目 RFC / Architecture Decision Record**
 4. **高质量技术媒体深度报道**（如 The New Stack、InfoQ 深度长文）
 
-### 3.4 调研通道（优先使用 agent-reach skill）
+### 3.4 调研通道（零依赖优先）
 
-工业案例调研**优先通过 agent-reach skill 执行**：
-若 agent-reach skill 未安装或不可用，可使用 WebSearch + WebFetch 组合替代，但必须遵循相同的信源优先级和新鲜度约束。
+工业案例调研只需要两种能力：**搜**和**读正文**。按下面的顺序取，前两档零安装零 Key，足够覆盖本 skill 的全部场景：
 
-1. 先用 agent-reach 的 `web` 分类定向检索一线工程博客
-2. 再用 `dev` 分类检索 GitHub 开源项目的 RFC / Architecture 文档
-3. 必要时用 `search` 分类做补充检索（顶级会议、白皮书）
+| 档 | 做什么 | 怎么用 | 依赖 |
+|:--|:--|:--|:--|
+| ① 检索 | 找一线工程博客、GitHub RFC/ADR、会议与白皮书 | 平台自带的 WebSearch（宿主 Agent 一般内建） | **无** |
+| ② 读正文 | 把检索到的 URL 转成可引用的干净 Markdown | `curl -s "https://r.jina.ai/<URL>"` | **无**（Jina Reader 免 Key、不扣 token、20 RPM，个人调研足够） |
+| ③ 增强（可选） | 语义检索更准；或需要 Twitter / Reddit 上的工程讨论 | Exa（免费额度）或 agent-reach skill | 需安装/Key |
+
+**为什么把 agent-reach 放第三档而不是第一档**：它需要 Python 3.10+ + pip + Node/npx + mcporter + gh CLI + yt-dlp 等一串依赖，价值主要集中在社交平台（Twitter / Reddit / 小红书 / B站）与视频字幕——本 skill 的调研对象是工程博客与 RFC，用不到这些。而它的"读网页"能力本质上就是调 `r.jina.ai`（②档）。**能零依赖做完的事，不要用需要安装的工具做**——技能被分发到不同宿主时，装不上的依赖就是断掉的链路。
+
+检索路径：一线工程博客 → GitHub RFC / Architecture Decision Record → 顶级会议分享与技术白皮书（补充）。
 
 关键词生成策略：
 - 通用模板：`{领域} architecture evolution production case study`

@@ -41,16 +41,13 @@
 
 #### 调研通道（强制）
 
-agent-reach 的 `web` / `dev` / `search` 三分类用法与降级说明，**唯一定义**见 `references/evolution-roadmap.md` §3.4，此处不复述。本阶段只规定检索动作：
+检索与正文提取的通道（**零依赖优先**：WebSearch → `r.jina.ai` → 可选增强）**唯一定义**见 `references/evolution-roadmap.md` §3.4，此处不复述。本阶段只规定检索路径：
 
 1. 一线工程博客（Anthropic / Netflix / Uber / Meta / ByteDance / Google / LinkedIn / Slack / meituan / alibaba / tencent 等 Engineering Blog）
 2. GitHub 开源项目的 RFC / Architecture Decision Record
 3. 顶级会议分享、技术白皮书（补充）
 
-关键词策略：
-- 通用模板：`{领域} architecture evolution production case study`
-- 短板反推：基于本课起点档（S0）的实际失败模式，反推下一档关键词
-  （例：若 S0 瓶颈是"串行执行慢" → 搜 `parallel {领域} production architecture`）
+关键词策略（通用模板与短板反推法）见 `references/evolution-roadmap.md` §3.4，此处不复述。本课型示例：若 S0 瓶颈是"串行执行慢" → 搜 `parallel {领域} production architecture`。
 
 #### 采集硬约束
 
@@ -96,12 +93,12 @@ agent-reach 的 `web` / `dev` / `search` 三分类用法与降级说明，**唯�
 2. 列出上一档/两档的核心架构决策点（控制流/能力/交互三域各找 1-2 个）
 3. 每个决策点构造场景化题干（三句话：场景锚定 → 升级需求 → 问题抛出）
 4. 设计 2 层追问（追问1 缩小到子决策，追问2 推向更极端场景）
-5. 用 agent-reach 网页检索验证推演方向：搜 `{技术关键词} + "architecture evolution" / "scaling" / "production"`，找到至少 1 篇工业界讨论同问题的文章作为来源
+5. 用网页检索验证推演方向：搜 `{技术关键词} + "architecture evolution" / "scaling" / "production"`，找到至少 1 篇工业界讨论同问题的文章作为来源
 
 #### 辅路径 A：架构演进文章 → 反向提炼（深度题来源）
 
 执行步骤：
-1. 用 agent-reach 网页检索搜本课核心技术 + "lessons learned" / "production journey" / "踩坑" / "从 0 到 1"
+1. 用网页检索搜本课核心技术 + "lessons learned" / "production journey" / "踩坑" / "从 0 到 1"
 2. 信源优先级：一线公司技术博客 > Staff+ 工程师博客 > InfoQ/极客时间深度 > 高赞公众号
 3. 新鲜度：≤ 2 年
 4. 找作者"纠结过、试过多方案、最终选 X 因为 Y"的决策时刻
@@ -110,7 +107,7 @@ agent-reach 的 `web` / `dev` / `search` 三分类用法与降级说明，**唯�
 
 #### 调研通道（强制）
 
-通道与降级说明见 `references/evolution-roadmap.md` §3.4，具体命令示例见 `references/interview-questions.md` §4.3。本阶段特有两条约束：
+通道见 `references/evolution-roadmap.md` §3.4，具体命令示例见 `references/interview-questions.md` §4.3。本阶段特有两条约束：
 
 - **搜题用网页搜索、读原文用全文阅读**（别把搜索结果的摘要当原文用）。
 - **禁止用通用 WebSearch 搜「XX 面试题」直接凑题**（出来的都是八股）。
@@ -157,7 +154,7 @@ agent-reach 的 `web` / `dev` / `search` 三分类用法与降级说明，**唯�
 | 情绪调动 / 个人亮点 / 讲述张力 | 经验线 (亲历/观察) |
 | 模糊启发 / 讨论素材 | 经验线 或 事实线 |
 | 确定性判断 / 架构标准 / 边界兜底 | 事实线 (公开/权威) |
-| 架构演进佐证 / 工业案例 | 演进线 (agent-reach 调研, ≤1.5年) |
+| 架构演进佐证 / 工业案例 | 演进线 (联网调研, ≤1.5年) |
 
 ## 本阶段产出（必须）
 

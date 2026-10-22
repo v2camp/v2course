@@ -1,5 +1,25 @@
 # 更新日志
 
+## 4.20.0 - 2026-10-23
+
+### 改造：调研通道零依赖优先 + 新增重复扫描脚本
+
+**1. 调研通道降级顺序修正（`evolution-roadmap.md §3.4` 重写）**
+
+原来的写法是「优先 agent-reach skill，装不上才降级到 WebSearch」——顺序反了。调研核实：agent-reach 需要 Python 3.10+ + pip + Node/npx + mcporter + gh CLI + yt-dlp 等一串依赖，价值集中在社交平台（Twitter / Reddit / 小红书 / B站）与视频字幕；而本 skill 的调研对象是工程博客与 RFC，用不到这些。它的"读网页"能力本质上就是调 `r.jina.ai`。
+
+新通道三档：① 平台自带 WebSearch（零依赖）② `curl -s "https://r.jina.ai/<URL>"` 取正文（免 Key、不扣 token、20 RPM，2026-08 实测仍可用）③ Exa / agent-reach（可选增强，需安装或 Key）。**能零依赖做完的事，不用需要安装的工具做**——技能分发到不同宿主时，装不上的依赖就是断掉的链路。同步更新 8 处引用（SKILL / README / core-principles / architecture-course / interview-questions / phase-2 / anti-patterns）。
+
+**2. 新增 `scripts/ownership-scan.mjs`**
+
+判据「多安家」的机械检测：抽取条目行 → 归一化 → bigram Jaccard → 报出跨文件高相似对。与 `course-lint` 分工明确（lint 判产物，本脚本判规范）。首跑即抓出 33 对（阈值 0.72）/ 12 对逐字（0.95），其中 2 组是真重复且此前人工扫描遗漏。
+
+降噪：命中分「跨文件（需裁决）/ 模板对称 / 同文件」三类——各 subagent 的报告格式对称是必要的，不算重复。
+
+**3. 首跑修复的 2 组逐字重复**
+- `SKILL.md:185-186` ↔ `core-principles.md:33-34`（`.course/` 路径规则）→ SKILL 改指针；
+- `evolution-roadmap.md:86` ↔ `phase-2-cases.md:51`（关键词模板）→ phase-2 改指针，保留本课型独有的示例。
+
 ## 4.19.0 - 2026-10-23
 
 ### 精简：遗留 8 项收敛（5 批，核实后 3 项不做）

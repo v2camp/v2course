@@ -21,9 +21,9 @@
 - 写各自技术栈最地道的实现，而不是另一栈的翻译腔
 - 详见 `phases/phase-0-explore.md`（多版本识别）与 `phases/phase-4-sync.md`（L0-L4 对齐清单）
 
-### 4. 工业案例新鲜度与 agent-reach 调研
+### 4. 工业案例新鲜度与调研通道
 - 凡是引用工业案例（尤其是演进路线段），发布时间 ≤ 1.5 年，必须有量化指标和来源标注
-- Phase 2 工业案例调研优先通过 agent-reach skill 执行；若 agent-reach 不可用，可使用 WebSearch + WebFetch 组合替代，但必须遵循相同的信源优先级和新鲜度约束
+- Phase 2 工业案例调研走**零依赖通道**：WebSearch 检索 + `curl -s "https://r.jina.ai/<URL>"` 取正文；通道定义与可选项见 `references/evolution-roadmap.md` §3.4
 - 详见 references/evolution-roadmap.md §3
 
 ### 5. 过程文件隔离

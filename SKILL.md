@@ -1,6 +1,6 @@
 ---
 name: course-skill
-version: 4.19.0
+version: 4.20.0
 agent_created: true
 description: This skill should be used when the user mentions 做课、写讲义、课程策划、公开课大纲、录播课脚本、晋升辅导、面试脚本、架构案例分析书、写架构书、案例书, or any course/coaching production task. 指导从 0 到 1 策划并制作高品质的各类课程与辅导材料（公开课、实战课、迷你课、录播课、晋升辅导、面试辅导等），也可创作架构案例分析书等长文档。支持多版本管理与视角 A-I 质量门禁。产物体系按「课型默认 × 消费者判定」裁剪——课型给默认（公开课三产物、实战课二产物、录播课五产物），消费者不存在时对应产物降级为过程产物。
 triggers:
@@ -56,7 +56,7 @@ triggers:
 
 ### Skill 依赖
 
-- **联网研究**：Phase 2 工业案例调研与深入思考题候选题检索优先通过 **agent-reach skill** 执行。若 agent-reach 不可用，可使用 WebSearch + WebFetch 组合替代，但必须遵循相同的信源优先级和新鲜度约束。
+- **联网研究**：Phase 2 工业案例调研与候选题检索走**零依赖通道**——WebSearch 检索 + `curl -s "https://r.jina.ai/<URL>"` 取正文（免 Key、不扣 token）；通道定义见 `references/evolution-roadmap.md` §3.4。
 - **入门实战三段式规格**：实战课·入门实战的每段内容规格（组件学习 / 代码讲解 / 实战任务卡、三类保底图、过渡契约）遵循 `references/hands-on-lesson.md` 规范；骨架与节奏仍看 `references/templates.md §3.2`。
 - **演进路线方法论**：系列实战课的"架构演进路线图"段遵循 `references/evolution-roadmap.md` 规范。
 - **深入思考题方法论**：实战课的"附录深入思考题"遵循 `references/interview-questions.md` 规范。
@@ -180,10 +180,7 @@ triggers:
 
 ## 6. 文件与目录规范
 
-所有过程产物存入 `.course/` 目录：
-
-- 若有已选择的项目目录 → 项目根目录下的 `.course/{task_name}/phase-n/`
-- 若无项目目录（仅临时工作区） → 当前工作目录下的 `.course/{task_name}/phase-n/`
+所有过程产物存入 `.course/` 目录——**路径规则（有/无项目目录两种情形）与隔离原则的唯一定义**见 `references/core-principles.md` §5，此处不复述。
 
 课程目录只放正式交付物，不放过程文件。Phase 0 必须向用户确认产物命名规范与**产物裁剪卡**（见 §4）。
 
