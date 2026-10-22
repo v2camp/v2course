@@ -17,7 +17,7 @@
 │   ├── phase-2-cases.md      # 构建证据系统（双轨+演进线+候选题，agent-reach 调研规范）
 │   ├── phase-3-produce.md    # 资产生产（初稿撰写，含演进路线段+附录思考题写作规范）
 │   ├── phase-4-sync.md       # 一致性对齐（L1-L4 分层同步）
-│   └── phase-5-review.md     # 审查与审计（视角 A-H + 四专家，含应用架构课专项审查）
+│   └── phase-5-review.md     # 审查与审计（视角 A-I + 四专家，含应用架构课专项审查）
 ├── references/               # 规范与参考指南
 │   ├── anti-patterns.md      # 反模式（绝对禁止的写法）
 │   ├── architecture-case-writing.md # 架构案例分析书写作规范（李智慧风格基准，管结构）

@@ -33,8 +33,8 @@
 - 若有已选择的项目目录 → 项目根目录下的 `.course/{task_name}/phase-n/`
 - 若无项目目录（仅临时工作区） → 当前工作目录下的 `.course/{task_name}/phase-n/`
 
-### 6. 视角 A-H 评估门禁（共八个）
-所有产出物必须通过 Phase 5 的**视角 A-H** 审查，不合格必须重做。**逐条判据的唯一出处是 `phases/phase-5-review.md` §2**，本文件只列索引、不复述判据：
+### 6. 视角 A-I 评估门禁（共九个）
+所有产出物必须通过 Phase 5 的**视角 A-I** 审查，不合格必须重做。**逐条判据的唯一出处是 `phases/phase-5-review.md` §2**，本文件只列索引、不复述判据：
 
 | 视角 | 名称（课型适用见括号） |
 |:---|:---|
@@ -47,7 +47,7 @@
 | G | 代码引用与飞书兼容专项（**G1-G10**，应用架构课必检） |
 | H | 教学代码生产级门禁专项（**H1-H8**，实战课必检；含代码对照与接线核验） |
 
-> 计数口径：早期写作"三视角"、扩章后写作"六视角"，**实际为 A-H 共八个**——涉及视角数量时一律以此表为准。四项专项（E-H）的判据各有唯一定义：F 见 `references/interview-questions.md`，G 见 `references/code-reference-feishu.md` §8，H 见 `references/multi-track-production.md` §2；`phase-5-review.md` 只列编号清单，引用时须同时给出条目编号与文件位置。
+> 计数口径：早期写作"三视角"、扩章后写作"六视角"，加视角 I 后**实际为 A-I 共九个**——涉及视角数量时一律以此表为准。五项专项（E-I）的判据各有唯一定义：F 见 `references/interview-questions.md`，G 见 `references/code-reference-feishu.md` §8，H 见 `references/multi-track-production.md` §2，I 见 `references/executable-claims.md`；`phase-5-review.md` 只列编号清单，引用时须同时给出条目编号与文件位置。
 
 ### 7. 附录深入思考题质量门禁（实战课）
 - 思考题质量判据（F1-F10）的唯一定义见 `references/interview-questions.md`（§2 三维度、§6.2 硬性规则、§7 反模式清单），本节不复述
@@ -70,6 +70,6 @@
 - 将过程文件散落在课程目录中。
 - 工业案例使用过期（>1.5年）数据或无来源量化指标。
 - 演进路线起点档与主 Demo 代码不一致（套模板）。
-- 未经视角 A-H 评估就宣称工作完成。
+- 未经视角 A-I 评估就宣称工作完成。
 - 深入思考题违反质量判据（题库凑数/给标准答案/跳过候选题确认等）——判据唯一定义见 `references/interview-questions.md`。
 - **实战课·应用架构特有反模式**：六条完整清单见 `references/anti-patterns.md`「应用架构类」（那是唯一定义，本节不复述）——含"代码未达标先写讲义""不读代码凭记忆虚构类名""只讲怎么做不讲 trade-off""无量化只写效果显著""把架构课讲成源码解读""过度设计"。
