@@ -23,7 +23,6 @@
 │   ├── architecture-case-writing.md # 架构案例分析书写作规范（李智慧风格基准，管结构）
 │   ├── architecture-course.md # 实战课·应用架构专项方法论（含读者假设与叙述基调）
 │   ├── architecture-narrative.md # 架构叙述方式规范（八大病灶，管句段级叙述质量）
-│   ├── boundary.md           # 边界说明
 │   ├── code-reference-feishu.md # 应用架构课代码引用规范（飞书兼容，双锚点法）
 │   ├── core-principles.md    # 核心原则（含应用架构课专项原则）
 │   ├── diagram-integration.md # 制图规范（v2svg 驱动）
